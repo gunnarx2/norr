@@ -1,0 +1,26 @@
+# usePrevious()
+
+Track the previous value of a variable.
+
+## Usage
+
+```tsx copy
+import { useState } from 'react';
+import { usePrevious } from '@norr/hooks';
+
+const Component = () => {
+  const [count, setCount] = useState(0);
+  const previousCount = usePrevious(count);
+
+  return (
+    <div>
+      <h1>
+        Now: {count}, before: {previousCount}
+      </h1>
+      <button type="button" onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  );
+};
+```

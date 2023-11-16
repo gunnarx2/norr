@@ -1,0 +1,21 @@
+# PartiallyOptional
+
+Make a subset of properties optional.
+
+## Usage
+
+```ts copy
+import { PartiallyOptional } from '@norr/typescript';
+
+type Person = {
+  name: string;
+  age: number;
+};
+
+type PersonWithOptionalAge = PartiallyOptional<Person, 'age'>;
+
+// 'name' is defined, but 'age' is now optional
+const person: PersonWithOptionalAge = {
+  name: 'Name Namesson',
+};
+```

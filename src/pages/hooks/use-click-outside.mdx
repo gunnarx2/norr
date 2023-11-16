@@ -1,0 +1,34 @@
+# useClickOutside()
+
+Listening for clicks outside of a specified element.
+
+## Usage
+
+```tsx copy
+import { MouseEvent as ReactMouseEvent, useRef } from 'react';
+import { useClickOutside } from '@norr/hooks';
+
+const Component = () => {
+  const buttonRef = useRef(null);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    console.log('You clicked outside.', event);
+  };
+
+  const handleClickInside = (
+    event: ReactMouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    console.log('You clicked inside.', event);
+  };
+
+  useClickOutside(buttonRef, handleClickOutside);
+
+  return (
+    <button
+      type="button"
+      ref={buttonRef}
+      onClick={handleClickInside}
+    />
+  );
+};
+```

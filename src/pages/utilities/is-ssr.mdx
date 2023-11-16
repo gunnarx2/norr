@@ -1,0 +1,13 @@
+# isSSR()
+
+Detect if code is running on the server.
+
+## Usage
+
+```tsx
+import { isSSR } from '@norr/utilities';
+
+const Component = () => {
+  return <div>{isSSR() ? 'Server' : 'Browser'}</div>;
+};
+```

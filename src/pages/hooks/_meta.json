@@ -1,0 +1,8 @@
+{
+  "overview": "Overview",
+  "use-click-outside": "useClickOutside()",
+  "use-event-listener": "useEventListener()",
+  "use-interval": "useInterval()",
+  "use-is-browser": "useIsBrowser()",
+  "use-previous": "usePrevious()"
+}

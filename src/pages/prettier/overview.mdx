@@ -1,0 +1,45 @@
+import { Steps, Tabs } from 'nextra/components';
+
+# Overview
+
+Collection of [Prettier](https://prettier.io/) rules.
+
+## Install
+
+<Steps>
+  ### Package
+
+  <Tabs items={['yarn', 'npm']}>
+    <Tabs.Tab>
+      ```bash copy
+      $ yarn add @norr/prettier -D
+      ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+      ```bash copy
+      $ npm install @norr/prettier -D
+      ```
+    </Tabs.Tab>
+  </Tabs>
+
+  ### Peer dependencies
+
+  <Tabs items={['yarn', 'npm']}>
+    <Tabs.Tab>
+      ```bash copy
+      $ yarn info @norr/prettier peerDependencies
+      ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+      ```bash copy
+      $ npm info @norr/prettier peerDependencies
+      ```
+    </Tabs.Tab>
+  </Tabs>
+
+  ### Usage
+
+  ```js copy
+  module.exports = require('@norr/prettier');
+  ```
+</Steps>

@@ -1,0 +1,53 @@
+import { Steps, Tabs } from 'nextra/components';
+
+# React with TypeScript
+
+Collection of [ESLint](https://eslint.org/) rules for [React](https://react.dev/)
+with [TypeScript](https://www.typescriptlang.org/).
+
+## Install
+
+<Steps>
+  ### Package
+
+  <Tabs items={['yarn', 'npm']}>
+    <Tabs.Tab>
+      ```bash copy
+      $ yarn add @norr/eslint-config-eslint-react-typescript -D
+      ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+      ```bash copy
+      $ npm install @norr/eslint-config-eslint-react-typescript -D
+      ```
+    </Tabs.Tab>
+  </Tabs>
+
+  ### Peer dependencies
+
+  <Tabs items={['yarn', 'npm']}>
+    <Tabs.Tab>
+      ```bash copy
+      $ yarn info @norr/eslint-config-eslint-react-typescript peerDependencies
+      ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+      ```bash copy
+      $ npm info @norr/eslint-config-eslint-react-typescript peerDependencies
+      ```
+    </Tabs.Tab>
+  </Tabs>
+
+  ### Usage
+
+  ```js copy
+  module.exports = {
+    extends: ['@norr/eslint-react-typescript'],
+  };
+  ```
+
+  ### Prettier
+
+  It extends [Prettier](https://prettier.io/) and is dependandent of [@norr/prettier](/prettier/overview),
+  so make sure to set it up as well.
+</Steps>

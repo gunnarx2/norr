@@ -1,0 +1,21 @@
+# useInterval()
+
+It uses the [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/setInterval)
+method to repeatedly call a function or executes a code snippet, with a fixed
+time delay between each call.
+
+## Usage
+
+```tsx copy
+import { useInterval } from '@norr/hooks';
+
+const Component = () => {
+  useInterval(() => {
+    console.log(
+      'This will be logged every second until you unmount the component.'
+    );
+  }, 1000);
+
+  return null;
+};
+```

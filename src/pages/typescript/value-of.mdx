@@ -1,0 +1,16 @@
+# ValueOf
+
+Get the union type of all the values in an object.
+
+## Usage
+
+```ts copy
+import { ValueOf } from '@norr/typescript';
+
+type Person = {
+  name: string;
+  age: number;
+};
+
+type ValueOfPerson = ValueOf<Person>; // string | number
+```

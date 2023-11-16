@@ -1,0 +1,26 @@
+{
+  "name": "@norr/stylelint-emotion",
+  "description": "Norr is just another monorepo with a bunch of packages",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "./index.js",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gunnarx2/norr/"
+  },
+  "bugs": {
+    "url": "https://github.com/gunnarx2/norr/issues/"
+  },
+  "homepage": "https://norr.vercel.app/",
+  "publishConfig": {
+    "access": "public",
+    "directory": "../../dist/libs/stylelint-emotion"
+  },
+  "peerDependencies": {
+    "postcss": "^8.4.31",
+    "postcss-styled-syntax": "^0.5.0",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0"
+  }
+}

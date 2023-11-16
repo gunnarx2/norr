@@ -1,0 +1,9 @@
+/node_modules
+/dist
+/coverage
+/.next
+/.nx
+package.json
+package-lock.json
+yarn.lock
+yarn-error.log

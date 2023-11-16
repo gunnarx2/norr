@@ -1,0 +1,46 @@
+# Portal
+
+It uses [createPortal](https://react.dev/reference/react-dom/createPortal)
+to render some children into a different part of the DOM.
+
+## Usage
+
+Default behaviour is to render the children at the end of `document.body`.
+
+```tsx copy
+import { Portal } from '@norr/components';
+
+const Component = () => {
+  return (
+    <div>
+      I'm rendered where the component is used.
+      <Portal>
+        I'm portaled at the end of document.body.
+      </Portal>
+    </div>
+  );
+};
+```
+
+### Custom container
+
+You can tell the component in which container it should be rendered.
+
+```tsx copy
+import { Portal } from '@norr/components';
+
+const Component = () => {
+  const containerRef = useRef(null);
+
+  return (
+    <>
+      <div ref={containerRef} style={{ backgroundColor: 'teal' }}>
+        I'm a teal box.
+      </div>
+      <Portal container={containerRef}>
+        I'm portaled at the end of the teal box. 👆
+      </Portal>
+    </>
+  );
+};
+```

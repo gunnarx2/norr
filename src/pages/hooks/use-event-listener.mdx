@@ -1,0 +1,36 @@
+# useEventListener()
+
+It uses the [addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+method to be called whenever a specified event is delivered to the target.
+
+## Usage
+
+```tsx copy
+import { useRef } from 'react';
+import { useEventListener } from '@norr/hooks';
+
+const Component = () => {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const handleScroll = (event: Event) => {
+    console.log('Window scrolled.', event);
+  };
+
+  const handleClick = (event: MouseEvent) => {
+    console.log('Button clicked.', event);
+  };
+
+  // Window based event
+  useEventListener('scroll', handleScroll);
+
+  // Element based event
+  useEventListener('click', handleClick, buttonRef);
+
+  return (
+    <button
+      type="button"
+      ref={buttonRef}
+    />
+  );
+};
+```

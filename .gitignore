@@ -1,0 +1,43 @@
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/.nx
+
+# Dependencies
+/node_modules
+
+# Editors
+/.idea
+/.project
+/.classpath
+/.c9/
+/.settings/
+/.vscode
+*.launch
+*.sublime-workspace
+
+# Misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+/typings
+npm-debug.log
+yarn-error.log
+testem.log
+lerna-debug.log
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Cache
+.eslintcache
+.stylelintcache
+
+# Next.js
+/.next
+
+# TypeScript
+*.tsbuildinfo

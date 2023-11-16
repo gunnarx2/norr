@@ -1,0 +1,14 @@
+# useIsBrowser()
+
+Detect if code is running in the browser.
+
+## Usage
+
+```tsx copy
+import { useIsBrowser } from '@norr/hooks';
+
+const Component = () => {
+  const isBrowser = useIsBrowser();
+  return <div>{isBrowser ? 'Browser' : 'Server'}</div>;
+};
+```

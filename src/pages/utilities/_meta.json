@@ -1,0 +1,6 @@
+{
+  "overview": "Overview",
+  "lower-case-first-letter": "lowerCaseFirstLetter()",
+  "is-ssr": "isSSR()",
+  "upper-case-first-letter": "upperCaseFirstLetter()"
+}

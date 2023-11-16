@@ -1,0 +1,30 @@
+{
+  "name": "stylelint-styled-jsx",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/stylelint-styled-jsx/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/stylelint-styled-jsx"
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs stylelint-styled-jsx {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/stylelint-styled-jsx/**/*.js",
+          "libs/stylelint-styled-jsx/package.json"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

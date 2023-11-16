@@ -1,0 +1,30 @@
+{
+  "name": "stylelint-emotion",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/stylelint-emotion/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/stylelint-emotion"
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs stylelint-emotion {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/stylelint-emotion/**/*.js",
+          "libs/stylelint-emotion/package.json"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

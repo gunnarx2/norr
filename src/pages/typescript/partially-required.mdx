@@ -1,0 +1,21 @@
+# PartiallyRequired
+
+Make a subset of properties required.
+
+## Usage
+
+```ts copy
+import { PartiallyRequired } from '@norr/typescript';
+
+type Person = {
+  name: string;
+  age?: number;
+};
+
+type PersonWithRequiredAge = PartiallyRequired<Person, 'age'>;
+
+// 'age' is now required, so this will throw a type error 👇
+const person: PersonWithRequiredAge = {
+  name: 'Name Namesson',
+};
+```

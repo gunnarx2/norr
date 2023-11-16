@@ -1,0 +1,22 @@
+{
+  "name": "@norr/utilities",
+  "description": "Norr is just another monorepo with a bunch of packages",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gunnarx2/norr/"
+  },
+  "bugs": {
+    "url": "https://github.com/gunnarx2/norr/issues/"
+  },
+  "homepage": "https://norr.vercel.app/",
+  "publishConfig": {
+    "access": "public",
+    "directory": "../../dist/libs/utilities"
+  }
+}

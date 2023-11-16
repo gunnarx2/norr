@@ -1,0 +1,12 @@
+{
+  "packages": ["libs/*"],
+  "npmClient": "yarn",
+  "version": "independent",
+  "command": {
+    "version": {
+      "allowBranch": "master",
+      "message": "Publish :tada:"
+    }
+  },
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json"
+}

@@ -1,0 +1,51 @@
+import { Callout, Steps, Tabs } from 'nextra/components';
+
+# styled-jsx
+
+<Callout type="error" emoji="🚫">
+  `@norr/stylelint-styled-jsx` is in a early stage and is subject to change.
+</Callout>
+
+Collection of [Stylelint](https://stylelint.io/) rules for [styled-jsx](https://github.com/vercel/styled-jsx).
+
+## Install
+
+<Steps>
+  ### Package
+
+  <Tabs items={['yarn', 'npm']}>
+    <Tabs.Tab>
+      ```bash copy
+      $ yarn add @norr/stylelint-styled-jsx -D
+      ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+      ```bash copy
+      $ npm install @norr/stylelint-styled-jsx -D
+      ```
+    </Tabs.Tab>
+  </Tabs>
+
+  ### Peer dependencies
+
+  <Tabs items={['yarn', 'npm']}>
+    <Tabs.Tab>
+      ```bash copy
+      $ yarn info @norr/stylelint-styled-jsx peerDependencies
+      ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+      ```bash copy
+      $ npm info @norr/stylelint-styled-jsx peerDependencies
+      ```
+    </Tabs.Tab>
+  </Tabs>
+
+  ### Usage
+
+  ```js copy
+  module.exports = {
+    extends: ['@norr/stylelint-styled-jsx'],
+  };
+  ```
+</Steps>

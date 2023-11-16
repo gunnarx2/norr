@@ -1,0 +1,51 @@
+import { Callout, Steps, Tabs } from 'nextra/components';
+
+# Emotion
+
+<Callout type="error" emoji="🚫">
+  `@norr/stylelint-emotion` is in a early stage and is subject to change.
+</Callout>
+
+Collection of [Stylelint](https://stylelint.io/) rules for [Emotion](https://emotion.sh/).
+
+## Install
+
+<Steps>
+  ### Package
+
+  <Tabs items={['yarn', 'npm']}>
+    <Tabs.Tab>
+      ```bash copy
+      $ yarn add @norr/stylelint-emotion -D
+      ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+      ```bash copy
+      $ npm install @norr/stylelint-emotion -D
+      ```
+    </Tabs.Tab>
+  </Tabs>
+
+  ### Peer dependencies
+
+  <Tabs items={['yarn', 'npm']}>
+    <Tabs.Tab>
+      ```bash copy
+      $ yarn info @norr/stylelint-emotion peerDependencies
+      ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+      ```bash copy
+      $ npm info @norr/stylelint-emotion peerDependencies
+      ```
+    </Tabs.Tab>
+  </Tabs>
+
+  ### Usage
+
+  ```js copy
+  module.exports = {
+    extends: ['@norr/stylelint-emotion'],
+  };
+  ```
+</Steps>

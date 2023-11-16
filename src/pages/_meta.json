@@ -1,0 +1,10 @@
+{
+  "get-started": "Get started",
+  "components": "Components",
+  "hooks": "Hooks",
+  "utilities": "Utilities",
+  "typescript": "TypeScript",
+  "prettier": "Prettier",
+  "eslint": "ESLint",
+  "stylelint": "Stylelint"
+}
