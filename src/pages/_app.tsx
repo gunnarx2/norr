@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import type { AppProps } from 'next/app';
 
 import { ProgressBar } from '../components';
@@ -7,6 +8,7 @@ export const App = ({ Component, pageProps }: AppProps) => {
     <>
       <ProgressBar />
       <Component {...pageProps} />
+      <Analytics />
     </>
   );
 };
