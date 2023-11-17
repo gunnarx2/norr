@@ -1,10 +1,30 @@
-import { render } from '@testing-library/react';
+import { useRef } from 'react';
+
+import { render, within } from '@testing-library/react';
 
 import { Portal } from './Portal';
 
 describe('Portal', () => {
-  it('Should render successfully', () => {
-    const { baseElement } = render(<Portal>Children</Portal>);
+  it('Should render without container', () => {
+    const { baseElement } = render(<Portal>Portal</Portal>);
     expect(baseElement).toBeTruthy();
+  });
+
+  it('Should render within container', () => {
+    const PortalWithCustomContainer = () => {
+      const containerRef = useRef(null);
+
+      return (
+        <>
+          <div ref={containerRef}>Container</div>
+          <Portal container={containerRef}>Portal</Portal>
+        </>
+      );
+    };
+
+    const { getByText } = render(<PortalWithCustomContainer />);
+    const container = getByText('Container');
+
+    expect(within(container).getByText('Portal')).toBeTruthy();
   });
 });

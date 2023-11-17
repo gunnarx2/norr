@@ -5,6 +5,10 @@ import { useInterval } from './useInterval';
 jest.useFakeTimers();
 
 describe('useInterval()', () => {
+  it('Instance of function', () => {
+    expect(useInterval).toBeInstanceOf(Function);
+  });
+
   it('Make sure callback is triggered correctly based on delay', () => {
     const callback = jest.fn();
 
