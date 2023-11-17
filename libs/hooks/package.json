@@ -1,7 +1,7 @@
 {
   "name": "@norr/hooks",
   "description": "Norr is just another monorepo with a bunch of packages",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "./index.js",
   "module": "./index.mjs",
@@ -20,7 +20,7 @@
     "directory": "../../dist/libs/hooks"
   },
   "dependencies": {
-    "@norr/utilities": "^0.1.1"
+    "@norr/utilities": "^1.0.0"
   },
   "peerDependencies": {
     "react": "^18.0.0"
