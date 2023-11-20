@@ -1,6 +1,6 @@
 # useIsBrowser()
 
-Detect if code is running in the browser.
+Detect if code is running where browser features are available.
 
 ## Usage
 
@@ -9,6 +9,15 @@ import { useIsBrowser } from '@norr/hooks';
 
 const Component = () => {
   const isBrowser = useIsBrowser();
-  return <div>{isBrowser ? 'Browser' : 'Server'}</div>;
+
+  if (isBrowser) {
+    return (
+      <div>
+        Browser features are available.
+      </div>
+    );
+  }
+
+  return null;
 };
 ```
