@@ -1,7 +1,7 @@
 {
-  "name": "@norr/hooks",
+  "name": "@norr/typescript",
   "description": "Norr is just another monorepo with a bunch of packages",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "./index.js",
   "module": "./index.mjs",
@@ -17,13 +17,9 @@
   "homepage": "https://norr.vercel.app/",
   "publishConfig": {
     "access": "public",
-    "directory": "../../dist/libs/hooks"
-  },
-  "dependencies": {
-    "@norr/utilities": "^1.0.0",
-    "lodash.debounce": "^4.0.8"
+    "directory": "../../dist/packages/typescript"
   },
   "peerDependencies": {
-    "react": "^18.0.0"
+    "typescript": "^5.2.2"
   }
 }

@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "extends": ["./libs/eslint-config-eslint-react-typescript/src"],
+  "extends": ["./packages/eslint-config-eslint-react-typescript/src"],
   "plugins": ["@nx"],
   "rules": {
     "import/no-extraneous-dependencies": [

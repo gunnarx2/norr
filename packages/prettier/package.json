@@ -15,7 +15,7 @@
   "homepage": "https://norr.vercel.app/",
   "publishConfig": {
     "access": "public",
-    "directory": "../../dist/libs/prettier"
+    "directory": "../../dist/packages/prettier"
   },
   "peerDependencies": {
     "prettier": "^3.0.0"

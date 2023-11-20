@@ -15,7 +15,7 @@
   "homepage": "https://norr.vercel.app/",
   "publishConfig": {
     "access": "public",
-    "directory": "../../dist/libs/eslint-config-eslint-react-typescript"
+    "directory": "../../dist/packages/eslint-config-eslint-react-typescript"
   },
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.10.0",

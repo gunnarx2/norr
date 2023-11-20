@@ -1,3 +1,3 @@
 module.exports = {
-  extends: './libs/stylelint-styled-jsx/src',
+  extends: './packages/stylelint-styled-jsx/src',
 };

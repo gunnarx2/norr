@@ -1,14 +1,14 @@
 {
   "name": "eslint-config-eslint-react-typescript",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/eslint-config-eslint-react-typescript/src",
+  "sourceRoot": "packages/eslint-config-eslint-react-typescript/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/eslint-config-eslint-react-typescript"
+        "outputPath": "dist/packages/eslint-config-eslint-react-typescript"
       }
     },
     "publish": {
@@ -20,8 +20,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "libs/eslint-config-eslint-react-typescript/**/*.js",
-          "libs/eslint-config-eslint-react-typescript/package.json"
+          "packages/eslint-config-eslint-react-typescript/**/*.js",
+          "packages/eslint-config-eslint-react-typescript/package.json"
         ]
       }
     }

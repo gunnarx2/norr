@@ -1,18 +1,18 @@
 {
-  "name": "stylelint-styled-jsx",
+  "name": "prettier",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/stylelint-styled-jsx/src",
+  "sourceRoot": "packages/prettier/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/stylelint-styled-jsx"
+        "outputPath": "dist/packages/prettier"
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs stylelint-styled-jsx {args.ver} {args.tag}",
+      "command": "node tools/scripts/publish.mjs prettier {args.ver} {args.tag}",
       "dependsOn": ["build"]
     },
     "lint": {
@@ -20,8 +20,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "libs/stylelint-styled-jsx/**/*.js",
-          "libs/stylelint-styled-jsx/package.json"
+          "packages/prettier/**/*.js",
+          "packages/prettier/package.json"
         ]
       }
     }

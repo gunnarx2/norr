@@ -15,16 +15,18 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@norr/components": ["libs/components/src/index.ts"],
+      "@norr/components": ["packages/components/src/index.ts"],
       "@norr/eslint-config-eslint-react-typescript": [
-        "libs/eslint-config-eslint-react-typescript/src/index.js"
+        "packages/eslint-config-eslint-react-typescript/src/index.js"
       ],
-      "@norr/hooks": ["libs/hooks/src/index.ts"],
-      "@norr/prettier": ["libs/prettier/src/index.js"],
-      "@norr/stylelint-emotion": ["libs/stylelint-emotion/src/index.js"],
-      "@norr/stylelint-styled-jsx": ["libs/stylelint-styled-jsx/src/index.js"],
-      "@norr/utilities": ["libs/utilities/src/index.ts"],
-      "@norr/typescript": ["libs/typescript/src/index.ts"]
+      "@norr/hooks": ["packages/hooks/src/index.ts"],
+      "@norr/prettier": ["packages/prettier/src/index.js"],
+      "@norr/stylelint-emotion": ["packages/stylelint-emotion/src/index.js"],
+      "@norr/stylelint-styled-jsx": [
+        "packages/stylelint-styled-jsx/src/index.js"
+      ],
+      "@norr/utilities": ["packages/utilities/src/index.ts"],
+      "@norr/typescript": ["packages/typescript/src/index.ts"]
     }
   },
   "exclude": [

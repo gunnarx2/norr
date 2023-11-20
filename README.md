@@ -11,18 +11,18 @@ Recommended node version is defined in `.nvmrc`.
 - `$ yarn next:start` - Start a [Next.js](https://nextjs.org/) production server.
 - `$ yarn nx:graph` - [Graph](https://nx.dev/nx/dep-graph) dependencies within workspace.
 - `$ yarn nx:reset` - Clear all the cached Nx artifacts and metadata about the workspace and shuts down the Nx Daemon.
-- `$ yarn nx:build:components` - Build [@norr/components](https://github.com/gunnarx2/norr/tree/master/libs/components/).
-- `$ yarn nx:build:hooks` - Build [@norr/hooks](https://github.com/gunnarx2/norr/tree/master/libs/hooks/).
-- `$ yarn nx:build:utilities` - Build [@norr/utilities](https://github.com/gunnarx2/norr/tree/master/libs/utilities/).
-- `$ yarn nx:build:typescript` - Build [@norr/typescript](https://github.com/gunnarx2/norr/tree/master/libs/typescript/).
-- `$ yarn nx:build:prettier` - Build [@norr/prettier](https://github.com/gunnarx2/norr/tree/master/libs/prettier/).
-- `$ yarn nx:build:eslint-config-eslint-react-typescript` - Build [@norr/eslint-config-eslint-react-typescript](https://github.com/gunnarx2/norr/tree/master/libs/eslint-config-eslint-react-typescript/).
-- `$ yarn nx:build:stylelint-emotion` - Build [@norr/stylelint-emotion](https://github.com/gunnarx2/norr/tree/master/libs/stylelint-emotion/).
-- `$ yarn nx:build:stylelint-styled-jsx` - Build [@norr/stylelint-styled-jsx](https://github.com/gunnarx2/norr/tree/master/libs/stylelint-styled-jsx/).
+- `$ yarn nx:build:components` - Build [@norr/components](https://github.com/gunnarx2/norr/tree/master/packages/components/).
+- `$ yarn nx:build:hooks` - Build [@norr/hooks](https://github.com/gunnarx2/norr/tree/master/packages/hooks/).
+- `$ yarn nx:build:utilities` - Build [@norr/utilities](https://github.com/gunnarx2/norr/tree/master/packages/utilities/).
+- `$ yarn nx:build:typescript` - Build [@norr/typescript](https://github.com/gunnarx2/norr/tree/master/packages/typescript/).
+- `$ yarn nx:build:prettier` - Build [@norr/prettier](https://github.com/gunnarx2/norr/tree/master/packages/prettier/).
+- `$ yarn nx:build:eslint-config-eslint-react-typescript` - Build [@norr/eslint-config-eslint-react-typescript](https://github.com/gunnarx2/norr/tree/master/packages/eslint-config-eslint-react-typescript/).
+- `$ yarn nx:build:stylelint-emotion` - Build [@norr/stylelint-emotion](https://github.com/gunnarx2/norr/tree/master/packages/stylelint-emotion/).
+- `$ yarn nx:build:stylelint-styled-jsx` - Build [@norr/stylelint-styled-jsx](https://github.com/gunnarx2/norr/tree/master/packages/stylelint-styled-jsx/).
 - `$ yarn nx:build:all` - Build all packages.
-- `$ yarn nx:test:components` - Test [@norr/components](https://github.com/gunnarx2/norr/tree/master/libs/components/).
-- `$ yarn nx:test:hooks` - Test [@norr/hooks](https://github.com/gunnarx2/norr/tree/master/libs/hooks/).
-- `$ yarn nx:test:utilities` - Test [@norr/utilities](https://github.com/gunnarx2/norr/tree/master/libs/utilities/).
+- `$ yarn nx:test:components` - Test [@norr/components](https://github.com/gunnarx2/norr/tree/master/packages/components/).
+- `$ yarn nx:test:hooks` - Test [@norr/hooks](https://github.com/gunnarx2/norr/tree/master/packages/hooks/).
+- `$ yarn nx:test:utilities` - Test [@norr/utilities](https://github.com/gunnarx2/norr/tree/master/packages/utilities/).
 - `$ yarn nx:test:all` - Run all tests.
 - `$ yarn lerna:version` - Bump [version](https://github.com/lerna/lerna/tree/main/commands/version/) of packages changed since the last release.
 - `$ yarn lerna:publish:from-git` - [Publish](https://github.com/lerna/lerna/tree/main/commands/publish/) packages tagged in the current commit.
