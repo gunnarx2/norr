@@ -1,7 +1,7 @@
 {
   "name": "@norr/hooks",
   "description": "Norr is just another monorepo with a bunch of packages",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "license": "MIT",
   "main": "./index.js",
   "module": "./index.mjs",
@@ -20,7 +20,7 @@
     "directory": "../../dist/packages/hooks"
   },
   "dependencies": {
-    "@norr/utilities": "^1.0.0",
+    "@norr/utilities": "^1.1.0",
     "lodash.debounce": "^4.0.8"
   },
   "peerDependencies": {
