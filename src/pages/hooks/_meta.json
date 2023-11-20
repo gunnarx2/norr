@@ -4,5 +4,7 @@
   "use-event-listener": "useEventListener()",
   "use-interval": "useInterval()",
   "use-is-browser": "useIsBrowser()",
-  "use-previous": "usePrevious()"
+  "use-previous": "usePrevious()",
+  "use-window-resize": "useWindowResize()",
+  "use-window-size": "useWindowSize()"
 }

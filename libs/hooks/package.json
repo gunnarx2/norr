@@ -20,7 +20,8 @@
     "directory": "../../dist/libs/hooks"
   },
   "dependencies": {
-    "@norr/utilities": "^1.0.0"
+    "@norr/utilities": "^1.0.0",
+    "lodash.debounce": "^4.0.8"
   },
   "peerDependencies": {
     "react": "^18.0.0"

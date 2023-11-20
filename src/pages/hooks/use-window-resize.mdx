@@ -1,0 +1,36 @@
+# useWindowResize()
+
+Receive a callback function to execute on the window's resize event.
+
+## Usage
+
+Default behaviour is to execute the callback function on every resize event.
+
+```tsx copy
+import { useWindowResize } from '@norr/hooks';
+
+const Component = () => {
+  useWindowResize((event) => {
+    console.log(event);
+  });
+
+  return null;
+};
+```
+
+### Performance
+
+To enhance performance you can pass a number in milliseconds as the second
+argument, this will debounce the callback function.
+
+```tsx copy
+import { useWindowResize } from '@norr/hooks';
+
+const Component = () => {
+  useWindowResize((event) => {
+    console.log(event);
+  }, 250);
+
+  return null;
+};
+```
