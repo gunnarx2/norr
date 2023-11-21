@@ -5,3 +5,4 @@ export * from './lib/useEventListener/useEventListener';
 export * from './lib/usePrevious/usePrevious';
 export * from './lib/useWindowResize/useWindowResize';
 export * from './lib/useWindowSize/useWindowSize';
+export * from './lib/useCopyToClipboard/useCopyToClipboard';

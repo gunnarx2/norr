@@ -1,0 +1,48 @@
+# useCopyToClipboard()
+
+Copy a value to the clipboard.
+
+## Usage
+
+By default will the `isCopied` value go back to `false` after 2500
+milliseconds. See [duration](#duration) if you want to control it.
+
+The `copyValue()` function returns a boolean that indicates if the value was
+copied to the clipboard or not. It will not copy to the clipboard if the
+user have denied the permission to access the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API)
+or if the user's browser doesn't support clipboard functionality.
+
+```tsx copy
+import { useCopyToClipboard } from '@norr/hooks';
+
+const Component = () => {
+  const { copyValue, copiedValue, isCopied } = useCopyToClipboard();
+
+  return (
+    <button type="button" onClick={() => copyValue('Lorem ipsum')}>
+      {!isCopied ? 'Copy' : `Copied "${copiedValue}"`}
+    </button>
+  );
+};
+```
+
+### Duration
+
+You can control how long the `isCopied` value should be `true` by passing a
+`duration` value in milliseconds.
+
+```tsx copy
+import { useCopyToClipboard } from '@norr/hooks';
+
+const Component = () => {
+  const { copyValue, copiedValue, isCopied } = useCopyToClipboard({
+    duration: 5000,
+  });
+
+  return (
+    <button type="button" onClick={() => copyValue('Lorem ipsum')}>
+      {!isCopied ? 'Copy' : `Copied "${copiedValue}"`}
+    </button>
+  );
+};
+```
