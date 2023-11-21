@@ -2,10 +2,10 @@ import { RefObject, useEffect, useRef } from 'react';
 
 export type UseEventListenerReturn = void;
 
-export type UseEventListenerParameters<T, L, E> = {
+export type UseEventListenerParameters<T, U, V> = {
   type: T;
-  listener: (event: L) => void;
-  target?: E;
+  listener: (event: U) => void;
+  target?: V;
   options?: boolean | AddEventListenerOptions;
 };
 
