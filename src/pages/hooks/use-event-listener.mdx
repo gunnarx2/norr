@@ -21,16 +21,22 @@ const Component = () => {
   };
 
   // Window based event
-  useEventListener('scroll', handleScroll);
+  useEventListener({
+    type: 'scroll',
+    listener: handleScroll,
+  });
 
   // Element based event
-  useEventListener('click', handleClick, buttonRef);
+  useEventListener({
+    type: 'click',
+    listener: handleClick,
+    target: buttonRef,
+  });
 
   return (
-    <button
-      type="button"
-      ref={buttonRef}
-    />
+    <button type="button" ref={buttonRef}>
+      Click me.
+    </button>
   );
 };
 ```

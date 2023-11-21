@@ -5,33 +5,45 @@ import { fireEvent, render, renderHook } from '@testing-library/react';
 import { useEventListener } from './useEventListener';
 
 describe('useEventListener()', () => {
-  it('Instance of function', () => {
+  test('Instance of function', () => {
     expect(useEventListener).toBeInstanceOf(Function);
   });
 
-  it('Listener is executed when correct type is triggered', () => {
+  test('Listener is executed when correct type is triggered', () => {
     const listener = jest.fn();
     const { result } = renderHook(() => useRef(null));
     const { getByText } = render(<div ref={result.current}>Lorem ipsum</div>);
 
-    renderHook(() => useEventListener('click', listener, result.current));
+    renderHook(() =>
+      useEventListener({
+        type: 'click',
+        listener,
+        target: result.current,
+      })
+    );
 
     fireEvent.click(getByText('Lorem ipsum'));
     expect(listener).toHaveBeenCalledTimes(1);
   });
 
-  it('Listener is not executed when incorrect type is triggered', () => {
+  test('Listener is not executed when incorrect type is triggered', () => {
     const listener = jest.fn();
     const { result } = renderHook(() => useRef(null));
     const { getByText } = render(<div ref={result.current}>Lorem ipsum</div>);
 
-    renderHook(() => useEventListener('resize', listener, result.current));
+    renderHook(() =>
+      useEventListener({
+        type: 'resize',
+        listener,
+        target: result.current,
+      })
+    );
 
     fireEvent.click(getByText('Lorem ipsum'));
     expect(listener).toHaveBeenCalledTimes(0);
   });
 
-  it('Listener is not executed when incorrect element is triggered', () => {
+  test('Listener is not executed when incorrect target is triggered', () => {
     const listener = jest.fn();
 
     const { result: result1 } = renderHook(() => useRef(null));
@@ -42,18 +54,28 @@ describe('useEventListener()', () => {
       <div ref={result2.current}>Lorem ipsum 2</div>
     );
 
-    renderHook(() => useEventListener('scroll', listener, result1.current));
+    renderHook(() =>
+      useEventListener({
+        type: 'scroll',
+        listener,
+        target: result1.current,
+      })
+    );
 
     fireEvent.scroll(getByText('Lorem ipsum 2'));
     expect(listener).toHaveBeenCalledTimes(0);
   });
 
-  it('Does not add event listener if element is null', () => {
+  test('Does not add event listener if target is null', () => {
     const listener = jest.fn();
     const spyAddEventListener = jest.spyOn(global, 'addEventListener');
 
     renderHook(() =>
-      useEventListener('mouseleave', listener, { current: null })
+      useEventListener({
+        type: 'mouseleave',
+        listener,
+        target: { current: null },
+      })
     );
 
     expect(spyAddEventListener).not.toHaveBeenCalledWith(
@@ -62,15 +84,20 @@ describe('useEventListener()', () => {
     );
   });
 
-  it('Falls back to window if element is undefined', () => {
+  test('Falls back to window if target is undefined', () => {
     const listener = jest.fn();
     const spyAddEventListener = jest.spyOn(global, 'addEventListener');
 
-    renderHook(() => useEventListener('resize', listener));
+    renderHook(() =>
+      useEventListener({
+        type: 'resize',
+        listener,
+      })
+    );
     expect(spyAddEventListener).toHaveBeenCalled();
   });
 
-  it('Options are passed to event listener', () => {
+  test('Options are passed to event listener', () => {
     const listener = jest.fn();
     const spyAddEventListener = jest.spyOn(global, 'addEventListener');
     const options = {
@@ -80,7 +107,11 @@ describe('useEventListener()', () => {
     };
 
     renderHook(() =>
-      useEventListener('mouseenter', listener, undefined, options)
+      useEventListener({
+        type: 'mouseenter',
+        listener,
+        options,
+      })
     );
 
     expect(spyAddEventListener).toHaveBeenCalledWith(

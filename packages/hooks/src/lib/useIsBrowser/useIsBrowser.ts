@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 
-export const useIsBrowser = (): boolean => {
+export type UseIsBrowserReturn = boolean;
+
+export const useIsBrowser = (): UseIsBrowserReturn => {
   const [isBrowser, setIsBrowser] = useState(false);
 
   useEffect(() => {

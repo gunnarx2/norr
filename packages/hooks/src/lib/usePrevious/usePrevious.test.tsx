@@ -8,16 +8,16 @@ describe('usePrevious()', () => {
       initialProps: { count: 0 },
     });
 
-  it('Instance of function', () => {
+  test('Instance of function', () => {
     expect(usePrevious).toBeInstanceOf(Function);
   });
 
-  it('Should return undefined on initial render', () => {
+  test('Should return undefined on initial render', () => {
     const { result } = setupUsePrevious();
     expect(result.current).toBeUndefined();
   });
 
-  it('Should always return previous count after each update', () => {
+  test('Should always return previous count after each update', () => {
     const { result, rerender } = setupUsePrevious();
 
     rerender({ count: 1 });

@@ -2,11 +2,19 @@ import { useState, useCallback, useEffect } from 'react';
 
 import { useWindowResize } from '../useWindowResize/useWindowResize';
 
-export const useWindowSize = (wait?: number) => {
-  const [windowSize, setWindowSize] = useState<{
-    width?: number;
-    height?: number;
-  }>({
+export type UseWindowSizeReturn = {
+  width?: number;
+  height?: number;
+};
+
+export type UseWindowSizeParameters = {
+  debounce?: number;
+};
+
+export const useWindowSize = ({
+  debounce,
+}: UseWindowSizeParameters = {}): UseWindowSizeReturn => {
+  const [windowSize, setWindowSize] = useState<UseWindowSizeReturn>({
     width: undefined,
     height: undefined,
   });
@@ -21,7 +29,7 @@ export const useWindowSize = (wait?: number) => {
 
   useWindowResize(() => {
     setWindowSize(getWindowSize);
-  }, wait);
+  }, debounce);
 
   useEffect(() => {
     setWindowSize(getWindowSize);

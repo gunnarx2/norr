@@ -13,14 +13,14 @@ const Component = () => {
   const previousCount = usePrevious(count);
 
   return (
-    <div>
-      <h1>
+    <>
+      <span>
         Now: {count}, before: {previousCount}
-      </h1>
+      </span>
       <button type="button" onClick={() => setCount(count + 1)}>
         Increment
       </button>
-    </div>
+    </>
   );
 };
 ```

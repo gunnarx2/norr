@@ -1,13 +1,20 @@
 import { useEffect, useMemo, useRef } from 'react';
 
-import debounce from 'lodash.debounce';
+import lodashDebounce from 'lodash.debounce';
 
 import { useEventListener } from '../useEventListener/useEventListener';
 
+export type UseWindowResizeReturn = void;
+
+export type UseWindowResizeParameters = {
+  callback: (event: UIEvent) => void;
+  debounce?: number;
+};
+
 export const useWindowResize = (
-  callback: (event: UIEvent) => void,
-  wait?: number
-): void => {
+  callback: UseWindowResizeParameters['callback'],
+  debounce?: UseWindowResizeParameters['debounce']
+): UseWindowResizeReturn => {
   const savedCallback = useRef(callback);
 
   useEffect(() => {
@@ -15,13 +22,16 @@ export const useWindowResize = (
   }, [callback]);
 
   const handleResize = useMemo(() => {
-    const shouldUseDebounce = typeof wait === 'number' && wait > 0;
+    const shouldUseDebounce = typeof debounce === 'number' && debounce > 0;
     const getCallback = savedCallback.current;
 
     return shouldUseDebounce
-      ? debounce((event: UIEvent) => getCallback(event), wait)
+      ? lodashDebounce((event: UIEvent) => getCallback(event), debounce)
       : (event: UIEvent) => getCallback(event);
-  }, [wait]);
+  }, [debounce]);
 
-  useEventListener('resize', handleResize);
+  useEventListener({
+    type: 'resize',
+    listener: handleResize,
+  });
 };

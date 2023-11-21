@@ -10,11 +10,13 @@ time delay between each call.
 import { useInterval } from '@norr/hooks';
 
 const Component = () => {
+  const delay = 1000;
+
   useInterval(() => {
     console.log(
       'This will be logged every second until you unmount the component.',
     );
-  }, 1000);
+  }, delay);
 
   return null;
 };

@@ -11,11 +11,11 @@ describe('useWindowResize()', () => {
     jest.useRealTimers();
   });
 
-  it('Instance of function', () => {
+  test('Instance of function', () => {
     expect(useWindowResize).toBeInstanceOf(Function);
   });
 
-  it('Callback should be called directly and only once', () => {
+  test('Callback should be called directly and only once', () => {
     const callback = jest.fn();
     renderHook(() => useWindowResize(callback));
 
@@ -26,15 +26,15 @@ describe('useWindowResize()', () => {
     expect(callback).toHaveBeenCalledTimes(1);
   });
 
-  it('Set wait value to enable debounce', () => {
-    const wait = 250;
+  test('Enable debounce by passing it as argument', () => {
+    const debounce = 250;
     const callback = jest.fn();
-    renderHook(() => useWindowResize(callback, wait));
+    renderHook(() => useWindowResize(callback, debounce));
 
     fireEvent(window, new Event('resize'));
     expect(callback).toHaveBeenCalledTimes(0);
 
-    jest.advanceTimersByTime(wait - 1);
+    jest.advanceTimersByTime(debounce - 1);
     expect(callback).toHaveBeenCalledTimes(0);
 
     jest.advanceTimersByTime(1);

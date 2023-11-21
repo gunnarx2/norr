@@ -1,12 +1,17 @@
 import { useEffect, useRef } from 'react';
 
-type IntervalCallback = () => void;
+export type UseIntervalCallbackReturn = void;
+
+export type UseIntervalCallbackParameters = {
+  callback: () => void;
+  delay: number;
+};
 
 export const useInterval = (
-  callback: IntervalCallback,
+  callback: UseIntervalCallbackParameters['callback'],
   delay: number
-): void => {
-  const savedCallback = useRef<IntervalCallback>();
+): UseIntervalCallbackReturn => {
+  const savedCallback = useRef<UseIntervalCallbackParameters['callback']>();
 
   useEffect(() => {
     savedCallback.current = callback;

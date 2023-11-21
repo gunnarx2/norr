@@ -20,14 +20,17 @@ const Component = () => {
 
 ### Performance
 
-To enhance performance you can pass a number in milliseconds as argument, this
-will debounce the returning window size.
+To enhance performance you can pass a debounce number (in milliseconds). This
+will delay the update of the window size until the user has stopped resizing
+the window for the given amount of time.
 
 ```tsx copy
 import { useWindowSize } from '@norr/hooks';
 
 const Component = () => {
-  const { width, height } = useWindowSize(250);
+  const { width, height } = useWindowSize({
+    debounce: 250,
+  });
 
   return (
     <code>{JSON.stringify({ width, height })}</code>

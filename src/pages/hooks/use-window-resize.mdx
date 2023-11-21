@@ -20,16 +20,19 @@ const Component = () => {
 
 ### Performance
 
-To enhance performance you can pass a number in milliseconds as the second
-argument, this will debounce the callback function.
+To enhance performance you can pass a debounce number (in milliseconds) as the
+second argument. This will delay the callback function until the user has
+stopped resizing the window for the given amount of time.
 
 ```tsx copy
 import { useWindowResize } from '@norr/hooks';
 
 const Component = () => {
+  const debounce = 250;
+
   useWindowResize((event) => {
     console.log(event);
-  }, 250);
+  }, debounce);
 
   return null;
 };

@@ -1,11 +1,11 @@
 import { lowerCaseFirstLetter } from './lowerCaseFirstLetter';
 
 describe('lowerCaseFirstLetter()', () => {
-  it('Instance of function', () => {
+  test('Instance of function', () => {
     expect(lowerCaseFirstLetter).toBeInstanceOf(Function);
   });
 
-  it('Should lower case first letter of string', () => {
+  test('Should lower case first letter of string', () => {
     expect(lowerCaseFirstLetter('Lorem ipsum')).toEqual('lorem ipsum');
   });
 });

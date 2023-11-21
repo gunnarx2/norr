@@ -20,11 +20,11 @@ describe('useClickOutside()', () => {
     </>
   );
 
-  it('Instance of function', () => {
+  test('Instance of function', () => {
     expect(useClickOutside).toBeInstanceOf(Function);
   });
 
-  it('Trigger callback when click outside element', () => {
+  test('Trigger callback when click outside element', () => {
     const callback = jest.fn();
     const { result } = renderHook(() => useRef(null));
 
@@ -35,7 +35,7 @@ describe('useClickOutside()', () => {
     expect(callback).toHaveBeenCalledTimes(1);
   });
 
-  it(`Don't trigger callback when click inside element`, () => {
+  test(`Don't trigger callback when click inside element`, () => {
     const callback = jest.fn();
     const { result } = renderHook(() => useRef(null));
 
@@ -46,7 +46,7 @@ describe('useClickOutside()', () => {
     expect(callback).toHaveBeenCalledTimes(0);
   });
 
-  it(`Don't trigger callback if element doesn't exist`, () => {
+  test(`Don't trigger callback if element doesn't exist`, () => {
     const callback = jest.fn();
     const { result } = renderHook(() => useRef(null));
 

@@ -2,17 +2,27 @@ import { RefObject } from 'react';
 
 import { useEventListener } from '../useEventListener/useEventListener';
 
-export function useClickOutside<T extends Element = Element>(
-  ref: RefObject<T>,
-  handler: (event: MouseEvent) => void
-): void {
-  useEventListener('click', (event) => {
-    const element = ref?.current;
+export type UseClickOutsideReturn = void;
 
-    if (!element || element.contains(event.target as Element)) {
-      return;
-    }
+export type UseClickOutsideParameters<T> = {
+  ref: RefObject<T>;
+  callback: (event: MouseEvent) => void;
+};
 
-    handler(event);
+export const useClickOutside = <T extends Element = Element>(
+  ref: UseClickOutsideParameters<T>['ref'],
+  callback: UseClickOutsideParameters<T>['callback']
+): UseClickOutsideReturn => {
+  useEventListener({
+    type: 'click',
+    listener: (event) => {
+      const element = ref?.current;
+
+      if (!element || element.contains(event.target as Element)) {
+        return;
+      }
+
+      callback(event);
+    },
   });
-}
+};

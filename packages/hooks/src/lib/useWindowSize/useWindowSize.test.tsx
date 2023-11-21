@@ -11,11 +11,11 @@ describe('useWindowSize()', () => {
     jest.useRealTimers();
   });
 
-  it('Instance of function', () => {
+  test('Instance of function', () => {
     expect(useWindowSize).toBeInstanceOf(Function);
   });
 
-  it('Should return width and height on resize', () => {
+  test('Should return width and height on resize', () => {
     const { result } = renderHook(() => useWindowSize());
 
     const newWidth = 1337;
@@ -33,9 +33,9 @@ describe('useWindowSize()', () => {
     expect(result.current.height).toBe(newHeight);
   });
 
-  it('Set wait value to enable debounce', () => {
-    const wait = 250;
-    const { result } = renderHook(() => useWindowSize(wait));
+  test('Enable debounce by passing it as argument', () => {
+    const debounce = 250;
+    const { result } = renderHook(() => useWindowSize({ debounce }));
 
     const newWidth = 1234;
     act(() => {
@@ -44,7 +44,7 @@ describe('useWindowSize()', () => {
     });
     expect(result.current.width).not.toBe(newWidth);
 
-    act(() => jest.advanceTimersByTime(wait - 1));
+    act(() => jest.advanceTimersByTime(debounce - 1));
     expect(result.current.width).not.toBe(newWidth);
 
     act(() => jest.advanceTimersByTime(1));
@@ -57,7 +57,7 @@ describe('useWindowSize()', () => {
     });
     expect(result.current.height).not.toBe(newHeight);
 
-    act(() => jest.advanceTimersByTime(wait - 1));
+    act(() => jest.advanceTimersByTime(debounce - 1));
     expect(result.current.height).not.toBe(newHeight);
 
     act(() => jest.advanceTimersByTime(1));
