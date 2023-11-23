@@ -11,7 +11,11 @@ const Portal = (props: UsePortalProps) => {
 
 describe('Portal', () => {
   test('Should render without container', () => {
-    const { baseElement } = render(<Portal>Portal</Portal>);
+    const { baseElement } = render(
+      <Portal>
+        <div>Portal</div>
+      </Portal>
+    );
     expect(baseElement).toBeTruthy();
   });
 
@@ -22,7 +26,9 @@ describe('Portal', () => {
       return (
         <>
           <div ref={containerRef}>Container</div>
-          <Portal container={containerRef}>Portal</Portal>
+          <Portal container={containerRef}>
+            <div>Portal</div>
+          </Portal>
         </>
       );
     };
