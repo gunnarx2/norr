@@ -1,8 +1,13 @@
-import { useRef } from 'react';
+import { Fragment, useRef } from 'react';
 
 import { render, within } from '@testing-library/react';
 
-import { Portal } from './Portal';
+import { UsePortalProps, usePortal } from './Portal';
+
+const Portal = (props: UsePortalProps) => {
+  const { portalProps } = usePortal(props);
+  return <Fragment {...portalProps} />;
+};
 
 describe('Portal', () => {
   test('Should render without container', () => {

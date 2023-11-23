@@ -8,7 +8,13 @@ to render some children into a different part of the DOM.
 Default behaviour is to render the children at the end of `document.body`.
 
 ```tsx copy
-import { Portal } from '@norr/components';
+import { Fragment } from 'react';
+import { usePortal, UsePortalProps } from '@norr/components';
+
+const Portal = (props: UsePortalProps) => {
+  const { portalProps } = usePortal(props);
+  return <Fragment {...portalProps} />;
+};
 
 const Component = () => {
   return (
@@ -27,7 +33,13 @@ const Component = () => {
 You can tell the component in which container it should be rendered.
 
 ```tsx copy
-import { Portal } from '@norr/components';
+import { Fragment, useRef } from 'react';
+import { usePortal, UsePortalProps } from '@norr/components';
+
+const Portal = (props: UsePortalProps) => {
+  const { portalProps } = usePortal(props);
+  return <Fragment {...portalProps} />;
+};
 
 const Component = () => {
   const containerRef = useRef(null);
