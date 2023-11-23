@@ -21,7 +21,9 @@ const Component = () => {
     <div>
       I'm rendered where the component is used.
       <Portal>
-        I'm portaled at the end of document.body.
+        <div>
+          I'm portaled at the end of document.body.
+        </div>
       </Portal>
     </div>
   );
@@ -50,7 +52,9 @@ const Component = () => {
         I'm a teal box.
       </div>
       <Portal container={containerRef}>
-        I'm portaled at the end of the teal box. 👆
+        <div>
+          I'm portaled at the end of the teal box. 👆
+        </div>
       </Portal>
     </>
   );
