@@ -9,7 +9,7 @@ export type UseClickOutsideParameters<T> = {
   callback: (event: MouseEvent) => void;
 };
 
-export const useClickOutside = <T extends Element = Element>(
+export const useClickOutside = <T extends HTMLElement = HTMLElement>(
   ref: UseClickOutsideParameters<T>['ref'],
   callback: UseClickOutsideParameters<T>['callback']
 ): UseClickOutsideReturn => {
@@ -18,7 +18,7 @@ export const useClickOutside = <T extends Element = Element>(
     listener: (event) => {
       const element = ref?.current;
 
-      if (!element || element.contains(event.target as Element)) {
+      if (!element || element.contains(event.target as HTMLElement)) {
         return;
       }
 
