@@ -1,7 +1,7 @@
 {
   "name": "@norr/components",
   "description": "Norr is just another monorepo with a bunch of packages",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "./index.js",
   "module": "./index.mjs",
@@ -20,7 +20,7 @@
     "directory": "../../dist/packages/components"
   },
   "dependencies": {
-    "@norr/hooks": "^3.0.0",
+    "@norr/hooks": "^3.1.0",
     "clsx": "^2.0.0"
   },
   "peerDependencies": {
