@@ -79,9 +79,6 @@ module.exports = {
       },
     ],
 
-    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/display-name.md
-    'react/display-name': 'error',
-
     // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/no-explicit-any.md
     '@typescript-eslint/no-explicit-any': 'off',
 
@@ -148,5 +145,11 @@ module.exports = {
 
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/button-has-type.md
     'react/button-has-type': 'error',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/display-name.md
+    'react/display-name': 'error',
+
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
+    'react/jsx-no-useless-fragment': 'off',
   },
 };
