@@ -68,7 +68,6 @@
     "@vitejs/plugin-react": "~4.2.0",
     "@vitest/ui": "^0.34.6",
     "babel-jest": "^29.4.1",
-    "clsx": "^2.0.0",
     "core-js": "^3.33.3",
     "eslint": "^8.54.0",
     "eslint-config-next": "14.0.3",
