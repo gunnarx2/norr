@@ -34,7 +34,7 @@ const Component = () => {
 
 You can tell the component in which container it should be rendered.
 
-```tsx copy
+```tsx copy {10,14-16,17,19}
 import { Fragment, useRef } from 'react';
 import { usePortal, UsePortalProps } from '@norr/components';
 
@@ -57,6 +57,42 @@ const Component = () => {
         </div>
       </Portal>
     </>
+  );
+};
+```
+
+### Trap focus
+
+The component is using [useTrapFocus()](/hooks/use-trap-focus) under the hood,
+which will trap the focus within the portal. You can enable it by passing the
+`trapFocus` prop.
+
+When using the `trapFocus` prop it's required for the children to be an element,
+otherwise will the trap focus functionality not work.
+
+```tsx copy {13,15-19}
+import { Fragment } from 'react';
+import { usePortal, UsePortalProps } from '@norr/components';
+
+const Portal = (props: UsePortalProps) => {
+  const { portalProps } = usePortal(props);
+  return <Fragment {...portalProps} />;
+};
+
+const Component = () => {
+  return (
+    <div>
+      I'm rendered where the component is used.
+      <Portal trapFocus>
+        <div>
+          The focus is now trapped within this portal.
+          <form>
+            <input type="text" />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </Portal>
+    </div>
   );
 };
 ```

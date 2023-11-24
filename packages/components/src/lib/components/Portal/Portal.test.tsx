@@ -10,6 +10,10 @@ const Portal = (props: UsePortalProps) => {
 };
 
 describe('Portal', () => {
+  test('Instance of function', () => {
+    expect(usePortal).toBeInstanceOf(Function);
+  });
+
   test('Should render without container', () => {
     const { baseElement } = render(
       <Portal>

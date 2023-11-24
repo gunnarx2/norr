@@ -5,20 +5,20 @@ import { useEventListener } from '../useEventListener/useEventListener';
 export type UseClickOutsideReturn = void;
 
 export type UseClickOutsideParameters<T> = {
-  ref: RefObject<T>;
+  target: RefObject<T>;
   callback: (event: MouseEvent) => void;
 };
 
 export const useClickOutside = <T extends HTMLElement = HTMLElement>(
-  ref: UseClickOutsideParameters<T>['ref'],
+  target: UseClickOutsideParameters<T>['target'],
   callback: UseClickOutsideParameters<T>['callback']
 ): UseClickOutsideReturn => {
   useEventListener({
     type: 'click',
     listener: (event) => {
-      const element = ref?.current;
+      const getTarget = target?.current;
 
-      if (!element || element.contains(event.target as HTMLElement)) {
+      if (!getTarget || getTarget.contains(event.target as HTMLElement)) {
         return;
       }
 

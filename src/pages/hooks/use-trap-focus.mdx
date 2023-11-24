@@ -1,0 +1,47 @@
+# useTrapFocus()
+
+Trap keyboard focus inside a DOM element.
+
+## Usage
+
+```tsx copy
+import { useTrapFocus } from '@norr/hooks';
+
+const Component = () => {
+  const trapFocusRef = useTrapFocus<HTMLDivElement>();
+
+  return (
+    <div ref={trapFocusRef}>
+      The focus is now trapped within this element.
+      <form>
+        <input type="text" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+};
+```
+
+### Disable
+
+You can disable the trap functionality by passing the `disabled` prop.
+
+```tsx copy {5,10}
+import { useTrapFocus } from '@norr/hooks';
+
+const Component = () => {
+  const trapFocusRef = useTrapFocus<HTMLDivElement>({
+    disabled: true,
+  });
+
+  return (
+    <div ref={trapFocusRef}>
+      The focus is not trapped within this element.
+      <form>
+        <input type="text" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+};
+```

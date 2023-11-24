@@ -6,6 +6,7 @@
   "use-interval": "useInterval()",
   "use-is-browser": "useIsBrowser()",
   "use-previous": "usePrevious()",
+  "use-trap-focus": "useTrapFocus()",
   "use-window-resize": "useWindowResize()",
   "use-window-size": "useWindowSize()"
 }
