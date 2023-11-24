@@ -32,7 +32,7 @@ export default defineConfig({
       entry: 'src/index.ts',
       name: 'hooks',
       fileName: 'index',
-      formats: ['es'],
+      formats: ['es', 'cjs'],
     },
     rollupOptions: {
       external: ['react', 'react/jsx-runtime', 'lodash.debounce', 'tabbable'],

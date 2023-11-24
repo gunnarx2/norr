@@ -33,7 +33,7 @@ export default defineConfig({
       entry: 'src/index.ts',
       name: 'components',
       fileName: 'index',
-      formats: ['es'],
+      formats: ['es', 'cjs'],
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime', '@norr/hooks'],

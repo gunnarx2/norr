@@ -26,7 +26,7 @@ export default defineConfig({
       entry: 'src/index.ts',
       name: 'typescript',
       fileName: 'index',
-      formats: ['es'],
+      formats: ['es', 'cjs'],
     },
   },
 });
