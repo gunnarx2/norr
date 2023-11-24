@@ -11,10 +11,6 @@
         "outputPath": "dist/packages/stylelint-styled-jsx"
       }
     },
-    "publish": {
-      "command": "node tools/scripts/publish.mjs stylelint-styled-jsx {args.ver} {args.tag}",
-      "dependsOn": ["build"]
-    },
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],

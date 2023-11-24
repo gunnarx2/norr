@@ -11,10 +11,6 @@
         "outputPath": "dist/packages/stylelint-emotion"
       }
     },
-    "publish": {
-      "command": "node tools/scripts/publish.mjs stylelint-emotion {args.ver} {args.tag}",
-      "dependsOn": ["build"]
-    },
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],

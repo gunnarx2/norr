@@ -11,10 +11,6 @@
         "outputPath": "dist/packages/typescript"
       }
     },
-    "publish": {
-      "command": "node tools/scripts/publish.mjs typescript {args.ver} {args.tag}",
-      "dependsOn": ["build"]
-    },
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
