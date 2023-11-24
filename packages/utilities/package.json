@@ -3,7 +3,7 @@
   "description": "Norr is just another monorepo with a bunch of packages",
   "version": "1.2.0",
   "license": "MIT",
-  "main": "./index.js",
+   "type": "module",
   "module": "./index.mjs",
   "types": "index.d.ts",
   "sideEffects": false,

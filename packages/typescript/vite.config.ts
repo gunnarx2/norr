@@ -26,10 +26,7 @@ export default defineConfig({
       entry: 'src/index.ts',
       name: 'typescript',
       fileName: 'index',
-      formats: ['es', 'cjs'],
-    },
-    rollupOptions: {
-      external: [],
+      formats: ['es'],
     },
   },
 });

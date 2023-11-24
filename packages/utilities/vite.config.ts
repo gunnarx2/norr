@@ -26,7 +26,7 @@ export default defineConfig({
       entry: 'src/index.ts',
       name: 'utilities',
       fileName: 'index',
-      formats: ['es', 'cjs'],
+      formats: ['es'],
     },
   },
 });

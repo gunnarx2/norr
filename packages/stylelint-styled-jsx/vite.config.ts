@@ -20,8 +20,5 @@ export default defineConfig({
       fileName: 'index',
       formats: ['cjs'],
     },
-    rollupOptions: {
-      external: [],
-    },
   },
 });
