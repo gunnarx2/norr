@@ -1,3 +1,3 @@
-export * from './lib/partiallyOptional/partiallyOptional';
-export * from './lib/partiallyRequired/partiallyRequired';
-export * from './lib/valueOf/valueOf';
+export * from './partiallyOptional/partiallyOptional';
+export * from './partiallyRequired/partiallyRequired';
+export * from './valueOf/valueOf';

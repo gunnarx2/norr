@@ -1,3 +1,3 @@
-export * from './lib/isSSR/isSSR';
-export * from './lib/lowerCaseFirstLetter/lowerCaseFirstLetter';
-export * from './lib/upperCaseFirstLetter/upperCaseFirstLetter';
+export * from './isSSR/isSSR';
+export * from './lowerCaseFirstLetter/lowerCaseFirstLetter';
+export * from './upperCaseFirstLetter/upperCaseFirstLetter';

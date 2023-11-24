@@ -20,7 +20,6 @@
     "directory": "../../dist/packages/hooks"
   },
   "dependencies": {
-    "@norr/utilities": "^1.1.1",
     "lodash.debounce": "^4.0.8",
     "tabbable": "^6.2.0"
   },

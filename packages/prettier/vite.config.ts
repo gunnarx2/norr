@@ -21,7 +21,7 @@ export default defineConfig({
       formats: ['cjs'],
     },
     rollupOptions: {
-      external: ['prettier'],
+      external: [],
     },
   },
 });
