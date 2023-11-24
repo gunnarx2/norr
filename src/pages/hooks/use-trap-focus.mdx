@@ -4,6 +4,9 @@ Trap keyboard focus inside a DOM element.
 
 ## Usage
 
+When the element is unmounted, the focus is restored to the element that had
+focus before the trap was trapped.
+
 ```tsx copy
 import { useTrapFocus } from '@norr/hooks';
 
