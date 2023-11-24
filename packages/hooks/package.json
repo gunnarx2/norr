@@ -1,7 +1,7 @@
 {
   "name": "@norr/hooks",
   "description": "Norr is just another monorepo with a bunch of packages",
-  "version": "3.1.0",
+  "version": "4.0.0",
   "license": "MIT",
   "main": "./index.js",
   "module": "./index.mjs",
