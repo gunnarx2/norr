@@ -7,7 +7,7 @@ import {
   useMemo,
 } from 'react';
 
-import { useIsBrowser, useTrapFocus } from '@norr/hooks';
+import { UseTrapFocusProps, useIsBrowser, useTrapFocus } from '@norr/hooks';
 import { createPortal as ReactDOMCreatePortal } from 'react-dom';
 
 import { isReactElement } from '../../utilities/isReactElement';
@@ -24,17 +24,17 @@ export type UsePortalProps = {
   children: ReactNode;
   container?: RefObject<HTMLElement>;
   trapFocus?: boolean;
+  disableReturnFocus?: UseTrapFocusProps['disableReturnFocus'];
 };
 
 export const usePortal = ({
   children,
   container,
   trapFocus,
+  disableReturnFocus,
 }: UsePortalProps): UsePortalReturn => {
   const isBrowser = useIsBrowser();
-  const trapFocusRef = useTrapFocus({
-    disabled: !trapFocus,
-  });
+  const trapFocusRef = useTrapFocus({ disableReturnFocus });
 
   const portalProps = useMemo(() => {
     if (!isBrowser) return {};

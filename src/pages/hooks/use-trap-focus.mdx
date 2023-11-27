@@ -4,8 +4,7 @@ Trap keyboard focus inside a DOM element.
 
 ## Usage
 
-When the element is unmounted, the focus is restored to the element that had
-focus before the trap was activated.
+When the component is mounted, the focus is trapped inside the element.
 
 ```tsx copy
 import { useTrapFocus } from '@norr/hooks';
@@ -25,21 +24,23 @@ const Component = () => {
 };
 ```
 
-### Disable
+### Return focus
 
-You can disable the trap functionality by passing the `disabled` prop.
+When the element is unmounted, the focus is returned to the element that had
+focus before the trap was activated. You can disable this by passing the
+`disableReturnFocus` prop.
 
 ```tsx copy {5,10}
 import { useTrapFocus } from '@norr/hooks';
 
 const Component = () => {
   const trapFocusRef = useTrapFocus<HTMLDivElement>({
-    disabled: true,
+    disableReturnFocus: true,
   });
 
   return (
     <div ref={trapFocusRef}>
-      The focus is not trapped within this element.
+      The focus is not returned when this component unmounts.
       <form>
         <input type="text" />
         <button type="submit">Submit</button>

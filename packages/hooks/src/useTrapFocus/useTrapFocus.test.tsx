@@ -9,8 +9,11 @@ describe('useTrapFocus()', () => {
   test('Should trap focus within defined element', () => {});
 
   // TODO: Create test
-  test('Should return focus to previous focused element', () => {});
+  test('Should not trap focus if element is undefined', () => {});
 
   // TODO: Create test
-  test('Should not trap focus when disabled', () => {});
+  test('Should return focus to previously focused element', () => {});
+
+  // TODO: Create test
+  test('Should not return focus to previously focused element when disabled', () => {});
 });

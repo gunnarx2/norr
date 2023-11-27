@@ -35,7 +35,13 @@ export default defineConfig({
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: ['react', 'react/jsx-runtime', 'lodash.debounce', 'tabbable'],
+      external: [
+        'react',
+        'react/jsx-runtime',
+        'lodash.debounce',
+        'tabbable',
+        '@norr/utilities',
+      ],
     },
   },
 });

@@ -96,3 +96,37 @@ const Component = () => {
   );
 };
 ```
+
+#### Return focus
+
+Also, when using the `trapFocus` prop, will the focus be returned to the element
+that was focused before the portal was mounted. You can change this behaviour by
+passing the `disableReturnFocus` prop.
+
+```tsx copy {13}
+import { Fragment } from 'react';
+import { usePortal, UsePortalProps } from '@norr/components';
+
+const Portal = (props: UsePortalProps) => {
+  const { portalProps } = usePortal(props);
+  return <Fragment {...portalProps} />;
+};
+
+const Component = () => {
+  return (
+    <div>
+      I'm rendered where the component is used.
+      <Portal trapFocus disableReturnFocus>
+        <div>
+          The focus is now trapped within this portal, but the focus will not be
+          returned to the element that was focused before the portal was mounted.
+          <form>
+            <input type="text" />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </Portal>
+    </div>
+  );
+};
+```
