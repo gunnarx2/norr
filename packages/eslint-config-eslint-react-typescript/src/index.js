@@ -1,20 +1,20 @@
-const { env: getEnv } = require('./env');
-const { extends: getExtends } = require('./extends');
-const { overrides: getOverrides } = require('./overrides');
-const { parser: getParser } = require('./parser');
-const { parserOptions: getParserOptions } = require('./parserOptions');
-const { plugins: getPlugins } = require('./plugins');
-const { rules: getRules } = require('./rules');
-const { settings: getSettings } = require('./settings');
+import env from './env';
+import getExtends from './extends';
+import overrides from './overrides';
+import parser from './parser';
+import parserOptions from './parserOptions';
+import plugins from './plugins';
+import rules from './rules';
+import settings from './settings';
 
-module.exports = {
+export default {
   root: true,
-  parser: getParser,
+  env,
   extends: getExtends,
-  plugins: getPlugins,
-  parserOptions: getParserOptions,
-  overrides: getOverrides,
-  rules: getRules,
-  env: getEnv,
-  settings: getSettings,
+  overrides,
+  parser,
+  parserOptions,
+  plugins,
+  rules,
+  settings,
 };

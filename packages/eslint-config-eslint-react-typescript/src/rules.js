@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   rules: {
     // https://github.com/prettier/eslint-plugin-prettier
     'prettier/prettier': 'error',
