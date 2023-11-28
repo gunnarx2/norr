@@ -6,6 +6,6 @@ export const inline = css`
     border-radius: 4px;
     padding: 1rem;
     border: 1px solid
-      hsl(var(--nextra-primary-hue) var(--nextra-primary-saturation) 94%/0.1);
+      hsl(var(--nextra-primary-hue) var(--nextra-primary-saturation) 94% / 10%);
   }
 `;

@@ -1,5 +1,7 @@
 module.exports = {
   extends: ['stylelint-config-standard'],
   customSyntax: 'postcss-styled-syntax',
-  rules: {},
+  rules: {
+    'color-function-notation': null,
+  },
 };

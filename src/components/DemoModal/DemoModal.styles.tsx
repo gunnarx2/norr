@@ -26,7 +26,6 @@ export const inline = css`
     border-radius: 8px;
     position: relative;
     padding: 2rem;
-    position: relative;
   }
 
   .heading {
