@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   plugins: [
     // https://github.com/typescript-eslint/typescript-eslint
     '@typescript-eslint',

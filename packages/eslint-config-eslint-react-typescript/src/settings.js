@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   settings: {
     // https://www.npmjs.com/package/eslint-plugin-import
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],

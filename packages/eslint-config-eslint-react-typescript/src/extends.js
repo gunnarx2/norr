@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   extends: [
     // https://github.com/bradbirdsallCHANGED/eslint-plugin-jsx-a11y
     'plugin:jsx-a11y/recommended',

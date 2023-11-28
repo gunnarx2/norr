@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   overrides: [
     // Jest - https://github.com/jest-community/eslint-plugin-jest
     // Testing Library - https://github.com/testing-library/eslint-plugin-testing-library
