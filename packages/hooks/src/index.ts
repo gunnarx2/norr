@@ -7,3 +7,4 @@ export * from './useWindowResize/useWindowResize';
 export * from './useWindowSize/useWindowSize';
 export * from './useCopyToClipboard/useCopyToClipboard';
 export * from './useTrapFocus/useTrapFocus';
+export * from './usePreventScroll/usePreventScroll';

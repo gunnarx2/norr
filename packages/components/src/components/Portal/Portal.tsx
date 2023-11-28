@@ -1,18 +1,7 @@
-import {
-  Children,
-  Fragment,
-  ReactNode,
-  ReactPortal,
-  RefObject,
-  useMemo,
-} from 'react';
+import { Fragment, ReactNode, ReactPortal, RefObject, useMemo } from 'react';
 
-import { UseTrapFocusProps, useIsBrowser, useTrapFocus } from '@norr/hooks';
+import { useIsBrowser } from '@norr/hooks';
 import { createPortal as ReactDOMCreatePortal } from 'react-dom';
-
-import { isReactElement } from '../../utilities/isReactElement';
-import { isReactFragment } from '../../utilities/isReactFragment';
-import { passPropsToChildren } from '../../utilities/passPropsToChildren';
 
 export type UsePortalReturn = {
   portalProps: {
@@ -23,60 +12,24 @@ export type UsePortalReturn = {
 export type UsePortalProps = {
   children: ReactNode;
   container?: RefObject<HTMLElement>;
-  trapFocus?: boolean;
-  disableReturnFocus?: UseTrapFocusProps['disableReturnFocus'];
 };
 
 export const usePortal = ({
   children,
   container,
-  trapFocus,
-  disableReturnFocus,
 }: UsePortalProps): UsePortalReturn => {
   const isBrowser = useIsBrowser();
-  const trapFocusRef = useTrapFocus({ disableReturnFocus });
 
   const portalProps = useMemo(() => {
     if (!isBrowser) return {};
 
-    const childrenIsFragment = isReactFragment(children);
-    if (childrenIsFragment && trapFocus) {
-      console.warn(
-        `Portal children can't start with a fragment for trap focus to work.`
-      );
-      return {};
-    }
-
-    const childrenIsElement = isReactElement(children);
-    if (!childrenIsElement && trapFocus) {
-      console.warn(
-        `Portal children needs to be an element for trap focus to work.`
-      );
-      return {};
-    }
-
-    const childenIsTooMany = Children.count(children) > 1;
-    if (childenIsTooMany && trapFocus) {
-      console.warn(
-        `Portal children may only have one child element for trap focus to work.`
-      );
-      return {};
-    }
-
-    const containerElement = container?.current;
-    const getChildren = trapFocus
-      ? passPropsToChildren(children, {
-          ref: trapFocusRef,
-        })
-      : children;
-
     return {
       children: ReactDOMCreatePortal(
-        <Fragment>{getChildren}</Fragment>,
-        containerElement || document.body
+        <Fragment>{children}</Fragment>,
+        container?.current || document.body
       ),
     };
-  }, [children, container, isBrowser, trapFocusRef, trapFocus]);
+  }, [children, container, isBrowser]);
 
   return { portalProps };
 };

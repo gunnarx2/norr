@@ -145,5 +145,13 @@ module.exports = {
 
     // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
     'react/jsx-no-useless-fragment': 'off',
+
+    // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/1adec3517fc2c9797212ca4d38858deed917e7be/docs/rules/no-autofocus.md
+    'jsx-a11y/no-autofocus': [
+      'error',
+      {
+        ignoreNonDOM: true,
+      },
+    ],
   },
 };

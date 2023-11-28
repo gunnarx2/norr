@@ -107,4 +107,16 @@ describe('Modal', () => {
     const closeScreen = screen.queryByText('Close modal');
     expect(closeScreen).toBeTruthy();
   });
+
+  test('Should prevent scroll when modal is open', () => {});
+
+  test('Should not prevent scroll when passing disablePreventScroll', () => {});
+
+  test('Should trap focus when mounted', () => {});
+
+  test('Should not trap focus when passing isDisabled', () => {});
+
+  test('Should return focus to previously focused element when unmounted', () => {});
+
+  test('Should not return focus when passing disableReturnFocus', () => {});
 });

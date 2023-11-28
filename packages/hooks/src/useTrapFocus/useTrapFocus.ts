@@ -8,10 +8,12 @@ import { useEventListener } from '../useEventListener/useEventListener';
 export type UseTrapFocusReturn<T> = RefObject<T>;
 
 export type UseTrapFocusProps = {
+  isDisabled?: boolean;
   disableReturnFocus?: boolean;
 };
 
 export const useTrapFocus = <T extends HTMLElement = HTMLElement>({
+  isDisabled,
   disableReturnFocus,
 }: UseTrapFocusProps = {}): UseTrapFocusReturn<T> => {
   const trapFocusRef = useRef<T>(null);
@@ -28,36 +30,41 @@ export const useTrapFocus = <T extends HTMLElement = HTMLElement>({
     };
   }, [disableReturnFocus]);
 
-  const handleKeydown = useCallback((event: KeyboardEvent) => {
-    const { key, shiftKey } = event;
-    const trapFocusElement = trapFocusRef.current;
-    if (key !== 'Tab' || !trapFocusElement) return;
+  const handleKeydown = useCallback(
+    (event: KeyboardEvent) => {
+      if (isDisabled) return;
 
-    const getTabbableElements = tabbable(trapFocusElement);
-    if (!getTabbableElements.length) return;
+      const { key, shiftKey } = event;
+      const trapFocusElement = trapFocusRef.current;
+      if (key !== 'Tab' || !trapFocusElement) return;
 
-    const firstElement = getTabbableElements[0];
-    const lastElement = getTabbableElements[getTabbableElements.length - 1];
-    const { activeElement } = document;
+      const getTabbableElements = tabbable(trapFocusElement);
+      if (!getTabbableElements.length) return;
 
-    if (!getTabbableElements.includes(activeElement as FocusableElement)) {
-      event.preventDefault();
-      const getElement = shiftKey ? lastElement : firstElement;
-      getElement.focus();
-      return;
-    }
+      const firstElement = getTabbableElements[0];
+      const lastElement = getTabbableElements[getTabbableElements.length - 1];
+      const { activeElement } = document;
 
-    if (shiftKey && activeElement === firstElement) {
-      event.preventDefault();
-      lastElement.focus();
-      return;
-    }
+      if (!getTabbableElements.includes(activeElement as FocusableElement)) {
+        event.preventDefault();
+        const getElement = shiftKey ? lastElement : firstElement;
+        getElement.focus();
+        return;
+      }
 
-    if (!shiftKey && activeElement === lastElement) {
-      event.preventDefault();
-      firstElement.focus();
-    }
-  }, []);
+      if (shiftKey && activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+        return;
+      }
+
+      if (!shiftKey && activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    },
+    [isDisabled]
+  );
 
   useEventListener({
     type: 'keydown',
