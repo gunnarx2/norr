@@ -1,0 +1,55 @@
+# Trap focus
+
+Trap keyboard focus inside a DOM element.
+
+## Usage
+
+When the component is mounted, the focus is trapped inside the element.
+
+See [Modal usage](/components/modal#usage) for demo.
+
+```tsx copy
+import { useTrapFocus } from '@norr/components';
+
+const Component = () => {
+  const { trapFocusProps } = useTrapFocus<HTMLDivElement>();
+
+  return (
+    <div {...trapFocusProps}>
+      The focus is now trapped within this component.
+      <form>
+        <input type="text" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+};
+```
+
+### Return focus
+
+When the component is unmounted, the focus is returned to the element that had
+focus before the trap was activated. You can disable this by passing the
+`disableReturnFocus` prop.
+
+See [Modal usage](/components/modal#usage) for demo.
+
+```tsx copy {5,10}
+import { useTrapFocus } from '@norr/components';
+
+const Component = () => {
+  const { trapFocusProps } = useTrapFocus<HTMLDivElement>({
+    disableReturnFocus: true,
+  });
+
+  return (
+    <div {...trapFocusProps}>
+      The focus will not be returned when this component unmounts.
+      <form>
+        <input type="text" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+};
+```

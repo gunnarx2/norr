@@ -7,7 +7,6 @@
   "use-is-browser": "useIsBrowser()",
   "use-prevent-scroll": "usePreventScroll()",
   "use-previous": "usePrevious()",
-  "use-trap-focus": "useTrapFocus()",
   "use-window-resize": "useWindowResize()",
   "use-window-size": "useWindowSize()"
 }

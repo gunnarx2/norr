@@ -42,7 +42,7 @@ export const DemoPortalWithCustomContainer = () => {
   );
 };
 
-const Portal = (props: UsePortalProps) => {
+export const Portal = (props: UsePortalProps) => {
   const { portalProps } = usePortal(props);
   return <Fragment {...portalProps} />;
 };

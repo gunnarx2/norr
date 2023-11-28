@@ -8,8 +8,10 @@ the main content.
 ## Usage
 
 In the usage examples below, we use the [Portal](/components/portal) component
-to render the modal into a different part of the DOM. This is not required,
-but it's recommended to avoid styling issues.
+to render the modal into a different part of the DOM and the [TrapFocus](/components/trap-focus)
+component to trap keyboard focus inside the modal and to return focus to the
+previously focused element. This is not required, but it's recommended to avoid
+styling issues and increase accessibility.
 
 <DemoProvider>
   <DemoModal />
@@ -18,6 +20,7 @@ but it's recommended to avoid styling issues.
 ```tsx copy
 import { useModal } from '@norr/components';
 import { Portal } from './Portal';
+import { TrapFocus } from './TrapFocus';
 
 const Component = () => {
   const {
@@ -32,12 +35,12 @@ const Component = () => {
       <button {...modalTriggerProps}>Trigger modal</button>
       {modalIsOpen && (
         <Portal>
-          <div style={{ position: 'fixed', zIndex: 1337, inset: 0 }}>
+          <TrapFocus style={{ position: 'fixed', zIndex: 1337, inset: 0 }}>
             <div {...modalProps} style={{ backgroundColor: 'teal' }}>
               <span>Modal content.</span>
               <button {...modalCloseProps}>Close modal</button>
             </div>
-          </div>
+          </TrapFocus>
         </Portal>
       )}
     </>
@@ -56,9 +59,10 @@ the `disableClickOutside` prop to `true`.
   <DemoModal disableClickOutside />
 </DemoProvider>
 
-```tsx copy {11,21}
+```tsx copy {12,22}
 import { useModal } from '@norr/components';
 import { Portal } from './Portal';
+import { TrapFocus } from './TrapFocus';
 
 const Component = () => {
   const {
@@ -75,12 +79,12 @@ const Component = () => {
       <button {...modalTriggerProps}>Trigger modal</button>
       {modalIsOpen && (
         <Portal>
-          <div style={{ position: 'fixed', zIndex: 1337, inset: 0 }}>
+          <TrapFocus style={{ position: 'fixed', zIndex: 1337, inset: 0 }}>
             <div {...modalProps} style={{ backgroundColor: 'teal' }}>
               <span>Will not be closed when clicked outside.</span>
               <button {...modalCloseProps}>Close modal</button>
             </div>
-          </div>
+          </TrapFocus>
         </Portal>
       )}
     </>
@@ -99,9 +103,10 @@ the `disableEscapeKey` prop to `true`.
   <DemoModal disableEscapeKey />
 </DemoProvider>
 
-```tsx copy {11,21}
+```tsx copy {12,22}
 import { useModal } from '@norr/components';
 import { Portal } from './Portal';
+import { TrapFocus } from './TrapFocus';
 
 const Component = () => {
   const {
@@ -118,12 +123,12 @@ const Component = () => {
       <button {...modalTriggerProps}>Trigger modal</button>
       {modalIsOpen && (
         <Portal>
-          <div style={{ position: 'fixed', zIndex: 1337, inset: 0 }}>
+          <TrapFocus style={{ position: 'fixed', zIndex: 1337, inset: 0 }}>
             <div {...modalProps} style={{ backgroundColor: 'teal' }}>
               <span>Will not be closed when escape key is pressed.</span>
               <button {...modalCloseProps}>Close modal</button>
             </div>
-          </div>
+          </TrapFocus>
         </Portal>
       )}
     </>
@@ -141,9 +146,10 @@ the `disablePreventScroll` prop to `true`.
   <DemoModal disablePreventScroll />
 </DemoProvider>
 
-```tsx copy {11,21}
+```tsx copy {12,22}
 import { useModal } from '@norr/components';
 import { Portal } from './Portal';
+import { TrapFocus } from './TrapFocus';
 
 const Component = () => {
   const {
@@ -160,99 +166,12 @@ const Component = () => {
       <button {...modalTriggerProps}>Trigger modal</button>
       {modalIsOpen && (
         <Portal>
-          <div style={{ position: 'fixed', zIndex: 1337, inset: 0 }}>
+          <TrapFocus style={{ position: 'fixed', zIndex: 1337, inset: 0 }}>
             <div {...modalProps} style={{ backgroundColor: 'teal' }}>
               <span>You can scroll behind the modal.</span>
               <button {...modalCloseProps}>Close modal</button>
             </div>
-          </div>
-        </Portal>
-      )}
-    </>
-  );
-};
-```
-
-### Trap focus
-
-The component is using [useTrapFocus()](/hooks/use-trap-focus) under the hood,
-which will trap the focus within the modal. This can be disabled by setting
-the `disableTrapFocus` prop to `true`.
-
-<DemoProvider>
-  <DemoModal disableTrapFocus />
-</DemoProvider>
-
-```tsx copy {11,21}
-import { useModal } from '@norr/components';
-import { Portal } from './Portal';
-
-const Component = () => {
-  const {
-    modalProps,
-    modalTriggerProps,
-    modalCloseProps,
-    modalIsOpen,
-  } = useModal<HTMLDivElement>({
-    disableTrapFocus: true,
-  });
-
-  return (
-    <>
-      <button {...modalTriggerProps}>Trigger modal</button>
-      {modalIsOpen && (
-        <Portal>
-          <div style={{ position: 'fixed', zIndex: 1337, inset: 0 }}>
-            <div {...modalProps} style={{ backgroundColor: 'teal' }}>
-              <span>The focus is not trapped within the modal.</span>
-              <button {...modalCloseProps}>Close modal</button>
-            </div>
-          </div>
-        </Portal>
-      )}
-    </>
-  );
-};
-```
-
-### Return focus
-
-The component is using [useTrapFocus()](/hooks/use-trap-focus) under the hood,
-which will return the focus to the element that was focused before the modal was
-mounted. This can be disabled by setting the `disableReturnFocus` prop to `true`.
-
-<DemoProvider>
-  <DemoModal disableReturnFocus />
-</DemoProvider>
-
-```tsx copy {11,22-23}
-import { useModal } from '@norr/components';
-import { Portal } from './Portal';
-
-const Component = () => {
-  const {
-    modalProps,
-    modalTriggerProps,
-    modalCloseProps,
-    modalIsOpen,
-  } = useModal<HTMLDivElement>({
-    disableReturnFocus: true,
-  });
-
-  return (
-    <>
-      <button {...modalTriggerProps}>Trigger modal</button>
-      {modalIsOpen && (
-        <Portal>
-          <div style={{ position: 'fixed', zIndex: 1337, inset: 0 }}>
-            <div {...modalProps} style={{ backgroundColor: 'teal' }}>
-              <span>
-                The focus will not be returned to the element that was focused
-                before the modal was mounted.
-              </span>
-              <button {...modalCloseProps}>Close modal</button>
-            </div>
-          </div>
+          </TrapFocus>
         </Portal>
       )}
     </>

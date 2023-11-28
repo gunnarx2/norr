@@ -1,11 +1,6 @@
 import css from 'styled-jsx/css';
 
 export const inline = css`
-  .inner {
-    height: 100%;
-    overflow: auto;
-  }
-
   .middle {
     display: table;
     width: 100%;
@@ -53,6 +48,13 @@ export const overlay = css.resolve`
     z-index: 1337;
     inset: 0;
     background-color: rgba(17, 17, 17, 0.75);
+  }
+`;
+
+export const inner = css.resolve`
+  div {
+    height: 100%;
+    overflow: auto;
   }
 `;
 

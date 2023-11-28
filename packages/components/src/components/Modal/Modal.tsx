@@ -1,17 +1,14 @@
-import { AriaRole, useMemo, useState } from 'react';
+import { AriaRole, RefObject, useMemo, useRef, useState } from 'react';
 
 import {
-  UseTrapFocusProps,
-  UseTrapFocusReturn,
   useClickOutside,
   useEventListener,
   usePreventScroll,
-  useTrapFocus,
 } from '@norr/hooks';
 
 export type UseModalReturn<T> = {
   modalProps: {
-    ref: UseTrapFocusReturn<T>;
+    ref: RefObject<T>;
     role: AriaRole;
   };
   modalTriggerProps: {
@@ -29,27 +26,20 @@ export type UseModalProps = {
   disableClickOutside?: boolean;
   disableEscapeKey?: boolean;
   disablePreventScroll?: boolean;
-  disableTrapFocus?: boolean;
-  disableReturnFocus?: UseTrapFocusProps['disableReturnFocus'];
 };
 
 export const useModal = <T extends HTMLElement = HTMLElement>({
   disableClickOutside,
   disableEscapeKey,
   disablePreventScroll,
-  disableTrapFocus,
-  disableReturnFocus,
 }: UseModalProps = {}): UseModalReturn<T> => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const trapFocusRef = useTrapFocus<T>({
-    isDisabled: disableTrapFocus,
-    disableReturnFocus,
-  });
+  const modalRef = useRef<T>(null);
 
   const shouldPreventScroll = disablePreventScroll ? false : modalIsOpen;
   usePreventScroll(shouldPreventScroll);
 
-  useClickOutside(trapFocusRef, () => {
+  useClickOutside(modalRef, () => {
     if (disableClickOutside || !modalIsOpen) return;
     setModalIsOpen(false);
   });
@@ -64,10 +54,10 @@ export const useModal = <T extends HTMLElement = HTMLElement>({
 
   const modalProps = useMemo(
     () => ({
-      ref: trapFocusRef,
+      ref: modalRef,
       role: 'dialog',
     }),
-    [trapFocusRef]
+    []
   );
 
   const modalTriggerProps = useMemo(

@@ -1,43 +1,30 @@
-import { Fragment } from 'react';
-
 import { motion, AnimatePresence } from 'framer-motion';
 
-import {
-  UseModalProps,
-  UsePortalProps,
-  useModal,
-  usePortal,
-} from '@norr/components';
-import { DemoButton } from 'src/components';
+import { UseModalProps, useModal } from '@norr/components';
+import { DemoButton, Portal, TrapFocus } from 'src/components';
 import {
   TRANSITION_DURATIONS,
   TRANSITION_EASINGS,
 } from 'src/consts/transition';
 
-import { inline, overlay, dialog } from './DemoModal.styles';
+import { inline, overlay, inner, dialog } from './DemoModal.styles';
 
 export type DemoModalProps = {
   disableClickOutside?: UseModalProps['disableClickOutside'];
   disableEscapeKey?: UseModalProps['disableEscapeKey'];
   disablePreventScroll?: UseModalProps['disablePreventScroll'];
-  disableTrapFocus?: UseModalProps['disableTrapFocus'];
-  disableReturnFocus?: UseModalProps['disableReturnFocus'];
 };
 
 export const DemoModal = ({
   disableClickOutside,
   disableEscapeKey,
   disablePreventScroll,
-  disableTrapFocus,
-  disableReturnFocus,
 }: DemoModalProps) => {
   const { modalProps, modalTriggerProps, modalCloseProps, modalIsOpen } =
     useModal<HTMLDivElement>({
       disableClickOutside,
       disableEscapeKey,
       disablePreventScroll,
-      disableTrapFocus,
-      disableReturnFocus,
     });
 
   return (
@@ -56,7 +43,7 @@ export const DemoModal = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <div className="inner">
+              <TrapFocus className={inner.className}>
                 <div className="middle">
                   <div className="body">
                     <motion.div
@@ -92,19 +79,15 @@ export const DemoModal = ({
                     </motion.div>
                   </div>
                 </div>
-              </div>
+              </TrapFocus>
             </motion.div>
           </Portal>
         )}
       </AnimatePresence>
       <style jsx>{inline}</style>
       {overlay.styles}
+      {inner.styles}
       {dialog.styles}
     </>
   );
-};
-
-const Portal = (props: UsePortalProps) => {
-  const { portalProps } = usePortal(props);
-  return <Fragment {...portalProps} />;
 };
