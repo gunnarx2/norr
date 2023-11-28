@@ -74,15 +74,14 @@ export const DemoModal = ({
                         <p className="paragraph">
                           In consequat Lorem minim velit exercitation ea ea
                           cupidatat tempor exercitation ullamco veniam aute.
-                          Laborum aliqua Lorem eiusmod est nulla labore deserunt
-                          ad commodo anim. Ipsum duis ex irure commodo aliquip.
+                          Laborum aliqua Lorem eiusmod est nulla labore
+                          deserunt.
                         </p>
                         <p className="paragraph">
                           Esse magna magna voluptate aliquip. Esse quis occaecat
                           laborum consectetur laboris est dolor esse adipisicing
                           sit elit consectetur voluptate. Amet ut eiusmod est
-                          proident mollit id ut consectetur incididunt nostrud
-                          mollit. Eu exercitation laboris exercitation velit.
+                          proident mollit id ut consectetur.
                         </p>
                         <div className="close-holder">
                           <DemoButton autoFocus {...modalCloseProps}>
