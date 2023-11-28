@@ -5,6 +5,7 @@
   "use-event-listener": "useEventListener()",
   "use-interval": "useInterval()",
   "use-is-browser": "useIsBrowser()",
+  "use-prevent-scroll": "usePreventScroll()",
   "use-previous": "usePrevious()",
   "use-trap-focus": "useTrapFocus()",
   "use-window-resize": "useWindowResize()",

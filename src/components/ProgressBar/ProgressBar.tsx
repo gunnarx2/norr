@@ -3,8 +3,10 @@ import { useEffect } from 'react';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 
+import { progressBar } from './ProgressBar.styles';
+
 NProgress.configure({
-  template: '<div class="progress-bar" role="bar"></div>',
+  template: `<div class="${progressBar.className}" role="bar"></div>`,
   showSpinner: false,
   easing: 'ease-in-out',
   speed: 500,
@@ -32,18 +34,5 @@ export const ProgressBar = () => {
     };
   }, []);
 
-  return (
-    <style jsx global>{`
-      .progress-bar {
-        pointer-events: none;
-        background-color: #319795;
-        position: fixed;
-        z-index: 99;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-      }
-    `}</style>
-  );
+  return <>{progressBar.styles}</>;
 };

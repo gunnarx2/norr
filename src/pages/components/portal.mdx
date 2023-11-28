@@ -1,3 +1,9 @@
+import {
+  DemoProvider,
+  DemoPortal,
+  DemoPortalWithCustomContainer,
+} from 'src/components';
+
 # Portal
 
 It uses [createPortal](https://react.dev/reference/react-dom/createPortal)
@@ -6,6 +12,10 @@ to render some children into a different part of the DOM.
 ## Usage
 
 Default behaviour is to render the children at the end of `document.body`.
+
+<DemoProvider>
+  <DemoPortal />
+</DemoProvider>
 
 ```tsx copy
 import { Fragment } from 'react';
@@ -18,14 +28,16 @@ const Portal = (props: UsePortalProps) => {
 
 const Component = () => {
   return (
-    <div>
-      I'm rendered where the component is used.
+    <>
+      <div style={{ backgroundColor: 'purple' }}>
+        I'm rendered where the component is used.
+      </div>
       <Portal>
-        <div>
+        <div style={{ backgroundColor: 'yellow' }}>
           I'm portaled at the end of document.body.
         </div>
       </Portal>
-    </div>
+    </>
   );
 };
 ```
@@ -34,7 +46,11 @@ const Component = () => {
 
 You can tell the component in which container it should be rendered.
 
-```tsx copy {10,14-16,17,19}
+<DemoProvider>
+  <DemoPortalWithCustomContainer />
+</DemoProvider>
+
+```tsx copy {10,14,17,19}
 import { Fragment, useRef } from 'react';
 import { usePortal, UsePortalProps } from '@norr/components';
 
@@ -48,85 +64,15 @@ const Component = () => {
 
   return (
     <>
-      <div ref={containerRef} style={{ backgroundColor: 'teal' }}>
-        I'm a teal box.
+      <div ref={containerRef} style={{ backgroundColor: 'purple' }}>
+        I'm rendered where the component is used.
       </div>
       <Portal container={containerRef}>
-        <div>
-          I'm portaled at the end of the teal box. 👆
+        <div style={{ backgroundColor: 'yellow' }}>
+          I'm portaled at the end of the purple box. 👆
         </div>
       </Portal>
     </>
-  );
-};
-```
-
-### Trap focus
-
-The component is using [useTrapFocus()](/hooks/use-trap-focus) under the hood,
-which will trap the focus within the portal. You can enable it by passing the
-`trapFocus` prop.
-
-When using the `trapFocus` prop it's required for the children to be an element,
-otherwise will the trap focus functionality not work.
-
-```tsx copy {13,15-19}
-import { Fragment } from 'react';
-import { usePortal, UsePortalProps } from '@norr/components';
-
-const Portal = (props: UsePortalProps) => {
-  const { portalProps } = usePortal(props);
-  return <Fragment {...portalProps} />;
-};
-
-const Component = () => {
-  return (
-    <div>
-      I'm rendered where the component is used.
-      <Portal trapFocus>
-        <div>
-          The focus is now trapped within this portal.
-          <form>
-            <input type="text" />
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-      </Portal>
-    </div>
-  );
-};
-```
-
-#### Return focus
-
-Also, when using the `trapFocus` prop, will the focus be returned to the element
-that was focused before the portal was mounted. You can change this behaviour by
-passing the `disableReturnFocus` prop.
-
-```tsx copy {13}
-import { Fragment } from 'react';
-import { usePortal, UsePortalProps } from '@norr/components';
-
-const Portal = (props: UsePortalProps) => {
-  const { portalProps } = usePortal(props);
-  return <Fragment {...portalProps} />;
-};
-
-const Component = () => {
-  return (
-    <div>
-      I'm rendered where the component is used.
-      <Portal trapFocus disableReturnFocus>
-        <div>
-          The focus is now trapped within this portal, but the focus will not be
-          returned to the element that was focused before the portal was mounted.
-          <form>
-            <input type="text" />
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-      </Portal>
-    </div>
   );
 };
 ```

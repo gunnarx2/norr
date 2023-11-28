@@ -1,0 +1,18 @@
+# usePreventScroll()
+
+Prevent the user from scrolling the page.
+
+## Usage
+
+When the component unmounts the hook will restore what it affected.
+
+```tsx copy
+import { usePreventScroll } from '@norr/hooks';
+
+const Component = () => {
+  const shouldPreventScroll = true;
+  usePreventScroll(shouldPreventScroll);
+
+  return null;
+};
+```

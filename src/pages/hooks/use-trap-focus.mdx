@@ -49,3 +49,27 @@ const Component = () => {
   );
 };
 ```
+
+### Disable
+
+You can disable the trap by passing the `isDisabled` prop.  
+
+```tsx copy {5,10}
+import { useTrapFocus } from '@norr/hooks';
+
+const Component = () => {
+  const trapFocusRef = useTrapFocus<HTMLDivElement>({
+    isDisabled: true,
+  });
+
+  return (
+    <div ref={trapFocusRef}>
+      The focus is not trapped within this element.
+      <form>
+        <input type="text" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+};
+```

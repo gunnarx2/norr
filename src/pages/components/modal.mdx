@@ -1,3 +1,5 @@
+import { DemoProvider, DemoModal } from 'src/components';
+
 # Modal
 
 The modal component provides the functionality to toggle dialogs that overlays
@@ -8,6 +10,10 @@ the main content.
 In the usage examples below, we use the [Portal](/components/portal) component
 to render the modal into a different part of the DOM. This is not required,
 but it's recommended to avoid styling issues.
+
+<DemoProvider>
+  <DemoModal />
+</DemoProvider>
 
 ```tsx copy
 import { useModal } from '@norr/components';
@@ -44,7 +50,11 @@ const Component = () => {
 The component is using [useClickOutside()](/hooks/use-click-outside) under the
 hood, so by default will the modal be closed when the user clicks outside of
 the modal (where you spread `{...modalProps}`). This can be disabled by setting
-the `disableClickOutside` props to `true`.
+the `disableClickOutside` prop to `true`.
+
+<DemoProvider>
+  <DemoModal disableClickOutside />
+</DemoProvider>
 
 ```tsx copy {11,21}
 import { useModal } from '@norr/components';
@@ -83,7 +93,11 @@ const Component = () => {
 The component is using [useEventListener()](/hooks/use-event-listener) under the
 hood to listen for when the escape key is pressed, so by default will the modal
 be closed when the user presses the `escape` key. This can be disabled by setting
-the `disableEscapeKey` props to `true`.
+the `disableEscapeKey` prop to `true`.
+
+<DemoProvider>
+  <DemoModal disableEscapeKey />
+</DemoProvider>
 
 ```tsx copy {11,21}
 import { useModal } from '@norr/components';
@@ -117,13 +131,17 @@ const Component = () => {
 };
 ```
 
-### Trap focus
+### Prevent scroll
 
-It's recommended to trap the focus inside the modal when it's open. This can be
-done by using the `trapFocus` prop on the [Portal](/components/portal#trap-focus)
-component.
+The component is using [usePreventScroll()](/hooks/use-prevent-scroll) under the
+hood to prevent scroll when the modal is open. This can be disabled by setting
+the `disablePreventScroll` prop to `true`.
 
-```tsx copy {16,19}
+<DemoProvider>
+  <DemoModal disablePreventScroll />
+</DemoProvider>
+
+```tsx copy {11,21}
 import { useModal } from '@norr/components';
 import { Portal } from './Portal';
 
@@ -133,16 +151,105 @@ const Component = () => {
     modalTriggerProps,
     modalCloseProps,
     modalIsOpen,
-  } = useModal<HTMLDivElement>();
+  } = useModal<HTMLDivElement>({
+    disablePreventScroll: true,
+  });
 
   return (
     <>
       <button {...modalTriggerProps}>Trigger modal</button>
       {modalIsOpen && (
-        <Portal trapFocus>
+        <Portal>
           <div style={{ position: 'fixed', zIndex: 1337, inset: 0 }}>
             <div {...modalProps} style={{ backgroundColor: 'teal' }}>
-              <span>The focus is now trapped within this modal.</span>
+              <span>You can scroll behind the modal.</span>
+              <button {...modalCloseProps}>Close modal</button>
+            </div>
+          </div>
+        </Portal>
+      )}
+    </>
+  );
+};
+```
+
+### Trap focus
+
+The component is using [useTrapFocus()](/hooks/use-trap-focus) under the hood,
+which will trap the focus within the modal. This can be disabled by setting
+the `disableTrapFocus` prop to `true`.
+
+<DemoProvider>
+  <DemoModal disableTrapFocus />
+</DemoProvider>
+
+```tsx copy {11,21}
+import { useModal } from '@norr/components';
+import { Portal } from './Portal';
+
+const Component = () => {
+  const {
+    modalProps,
+    modalTriggerProps,
+    modalCloseProps,
+    modalIsOpen,
+  } = useModal<HTMLDivElement>({
+    disableTrapFocus: true,
+  });
+
+  return (
+    <>
+      <button {...modalTriggerProps}>Trigger modal</button>
+      {modalIsOpen && (
+        <Portal>
+          <div style={{ position: 'fixed', zIndex: 1337, inset: 0 }}>
+            <div {...modalProps} style={{ backgroundColor: 'teal' }}>
+              <span>The focus is not trapped within the modal.</span>
+              <button {...modalCloseProps}>Close modal</button>
+            </div>
+          </div>
+        </Portal>
+      )}
+    </>
+  );
+};
+```
+
+### Return focus
+
+The component is using [useTrapFocus()](/hooks/use-trap-focus) under the hood,
+which will return the focus to the element that was focused before the modal was
+mounted. This can be disabled by setting the `disableReturnFocus` prop to `true`.
+
+<DemoProvider>
+  <DemoModal disableReturnFocus />
+</DemoProvider>
+
+```tsx copy {11,22-23}
+import { useModal } from '@norr/components';
+import { Portal } from './Portal';
+
+const Component = () => {
+  const {
+    modalProps,
+    modalTriggerProps,
+    modalCloseProps,
+    modalIsOpen,
+  } = useModal<HTMLDivElement>({
+    disableReturnFocus: true,
+  });
+
+  return (
+    <>
+      <button {...modalTriggerProps}>Trigger modal</button>
+      {modalIsOpen && (
+        <Portal>
+          <div style={{ position: 'fixed', zIndex: 1337, inset: 0 }}>
+            <div {...modalProps} style={{ backgroundColor: 'teal' }}>
+              <span>
+                The focus will not be returned to the element that was focused
+                before the modal was mounted.
+              </span>
               <button {...modalCloseProps}>Close modal</button>
             </div>
           </div>
