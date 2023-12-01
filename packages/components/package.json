@@ -1,7 +1,7 @@
 {
   "name": "@norr/components",
   "description": "Norr is just another monorepo with a bunch of packages",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "license": "MIT",
   "main": "./index.js",
   "module": "./index.mjs",
@@ -20,7 +20,7 @@
     "directory": "../../dist/packages/components"
   },
   "dependencies": {
-    "@norr/hooks": "^4.4.0"
+    "@norr/hooks": "^4.5.0"
   },
   "peerDependencies": {
     "react": "^18.0.0",
