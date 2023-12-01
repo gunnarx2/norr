@@ -1,9 +1,11 @@
+import commonjs from '@rollup/plugin-commonjs';
 import { defineConfig } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
   cacheDir: '../../node_modules/.vite/prettier',
   plugins: [
+    commonjs(),
     viteStaticCopy({
       targets: [
         {

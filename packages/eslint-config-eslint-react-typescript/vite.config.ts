@@ -1,22 +1,13 @@
+import commonjs from '@rollup/plugin-commonjs';
 import { defineConfig } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
   cacheDir: '../../node_modules/.vite/eslint-config-eslint-react-typescript',
   plugins: [
+    commonjs(),
     viteStaticCopy({
-      // TODO: Fix this logic
-      targets: [
-        { src: './src/env.js', dest: './' },
-        { src: './src/extends.js', dest: './' },
-        { src: './src/overrides.js', dest: './' },
-        { src: './src/parser.js', dest: './' },
-        { src: './src/parserOptions.js', dest: './' },
-        { src: './src/plugins.js', dest: './' },
-        { src: './src/rules.js', dest: './' },
-        { src: './src/settings.js', dest: './' },
-        { src: './README.md', dest: './' },
-      ],
+      targets: [{ src: './README.md', dest: './' }],
     }),
   ],
   build: {

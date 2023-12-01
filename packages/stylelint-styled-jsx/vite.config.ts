@@ -1,9 +1,11 @@
+import commonjs from '@rollup/plugin-commonjs';
 import { defineConfig } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
   cacheDir: '../../node_modules/.vite/stylelint-styled-jsx',
   plugins: [
+    commonjs(),
     viteStaticCopy({
       targets: [
         {
