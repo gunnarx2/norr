@@ -1,7 +1,7 @@
 import { Fragment, ReactNode, ReactPortal, RefObject, useMemo } from 'react';
 
 import { useIsBrowser } from '@norr/hooks';
-import { createPortal as ReactDOMCreatePortal } from 'react-dom';
+import { createPortal } from 'react-dom';
 
 export type UsePortalReturn = {
   portalProps: {
@@ -24,7 +24,7 @@ export const usePortal = ({
     if (!isBrowser) return {};
 
     return {
-      children: ReactDOMCreatePortal(
+      children: createPortal(
         <Fragment>{children}</Fragment>,
         container?.current || document.body
       ),
