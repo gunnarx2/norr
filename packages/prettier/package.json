@@ -1,7 +1,7 @@
 {
   "name": "@norr/prettier",
   "description": "Norr is just another monorepo with a bunch of packages",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "license": "MIT",
   "main": "./index.js",
   "sideEffects": false,
