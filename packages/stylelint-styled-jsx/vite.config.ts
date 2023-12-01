@@ -7,12 +7,7 @@ export default defineConfig({
   plugins: [
     commonjs(),
     viteStaticCopy({
-      targets: [
-        {
-          src: './README.md',
-          dest: './',
-        },
-      ],
+      targets: [{ src: './README.md', dest: './' }],
     }),
   ],
   build: {
