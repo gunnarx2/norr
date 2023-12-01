@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { UseModalProps, useModal } from './Modal';
@@ -108,7 +109,21 @@ describe('Modal', () => {
     expect(closeScreen).toBeTruthy();
   });
 
-  test('Should prevent scroll when modal is open', () => {});
+  test('Should prevent scroll when modal is open', () => {
+    const { getByText } = render(<Modal />);
 
-  test('Should not prevent scroll when passing disablePreventScroll', () => {});
+    const trigger = getByText('Trigger modal');
+    fireEvent.click(trigger);
+
+    expect(document.documentElement).toHaveStyle('overflow: hidden');
+  });
+
+  test('Should not prevent scroll when passing disablePreventScroll', () => {
+    const { getByText } = render(<Modal disablePreventScroll />);
+
+    const trigger = getByText('Trigger modal');
+    fireEvent.click(trigger);
+
+    expect(document.documentElement).not.toHaveStyle('overflow: hidden');
+  });
 });

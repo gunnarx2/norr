@@ -4,8 +4,12 @@ import { isSSR } from '@norr/utilities';
 
 export type UsePreventScrollReturn = void;
 
+export type UsePreventScrollParameters = {
+  preventScroll: boolean;
+};
+
 export const usePreventScroll = (
-  preventScroll: boolean
+  preventScroll: UsePreventScrollParameters['preventScroll']
 ): UsePreventScrollReturn => {
   useEffect(() => {
     if (isSSR() || !preventScroll) return;

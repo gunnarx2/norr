@@ -4,22 +4,22 @@ import { fireEvent, render, renderHook, screen } from '@testing-library/react';
 
 import { useClickOutside } from './useClickOutside';
 
-describe('useClickOutside()', () => {
-  const Content = ({
-    result,
-  }: {
-    result?: { current: MutableRefObject<null> };
-  } = {}) => (
-    <>
-      <div ref={result?.current}>
-        <p>Text inside</p>
-      </div>
-      <div>
-        <p>Text outside</p>
-      </div>
-    </>
-  );
+const Component = ({
+  result,
+}: {
+  result?: { current: MutableRefObject<null> };
+} = {}) => (
+  <>
+    <div ref={result?.current}>
+      <p>Text inside</p>
+    </div>
+    <div>
+      <p>Text outside</p>
+    </div>
+  </>
+);
 
+describe('useClickOutside()', () => {
   test('Instance of function', () => {
     expect(useClickOutside).toBeInstanceOf(Function);
   });
@@ -28,7 +28,7 @@ describe('useClickOutside()', () => {
     const callback = jest.fn();
     const { result } = renderHook(() => useRef(null));
 
-    render(<Content result={result} />);
+    render(<Component result={result} />);
     renderHook(() => useClickOutside(result.current, callback));
 
     fireEvent.click(screen.getByText('Text outside'));
@@ -39,7 +39,7 @@ describe('useClickOutside()', () => {
     const callback = jest.fn();
     const { result } = renderHook(() => useRef(null));
 
-    render(<Content result={result} />);
+    render(<Component result={result} />);
     renderHook(() => useClickOutside(result.current, callback));
 
     fireEvent.click(screen.getByText('Text inside'));
@@ -50,7 +50,7 @@ describe('useClickOutside()', () => {
     const callback = jest.fn();
     const { result } = renderHook(() => useRef(null));
 
-    render(<Content />);
+    render(<Component />);
     renderHook(() => useClickOutside(result.current, callback));
 
     fireEvent.click(screen.getByText('Text inside'));
