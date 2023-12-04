@@ -20,7 +20,6 @@ export default {
   head: () => {
     return (
       <>
-        <html lang="en" />
         <meta
           name="description"
           content="Norr is just another monorepo with a bunch of packages"
